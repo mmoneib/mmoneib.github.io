@@ -1,0 +1,557 @@
+@CHARSET "UTF-8";
+
+body { /*encompasses the header and the footer as well*/
+	margin: 0; /*removes the default margins to utilize all space*/
+	position: fixed; /*therefore, with respect to window, so as to 
+						allow for sizing of children with respect to the window 
+						through the body (through absolute) using percentages*/
+	/* width and height are implicitly 100% as a matter of display*/
+	width: 100%; /*explicitly set to allow for children's absolute sizing*/
+	height: 100%;
+	/*explicitly set to allow for children's absolute sizing*/
+	font-family: mmoneib;
+	font-variant: small-caps;
+}
+
+header {
+	background-color: #000080;
+	height: 13%; /*with respect to body*/
+	width: 100%; /*with respect to body*/
+	display: table; /*to allow children to be displayed as table-cell*/
+	position: absolute; /*therefore, with respect to body*/
+	z-index: 12; /*to stay on top*/
+	box-shadow: 2px 2px 15px #000000;
+	color: #87CEFA;
+}
+
+footer {
+	background-color: #000080;
+	color: #87CEFA;
+	position: absolute; /*therefore, with respect to body*/
+	bottom: 0px; /*with respect to body*/
+	width: 100%; /*with respect to body*/
+	height: 3%; /*with respect to body*/
+	z-index: 12; /*to stay on top*/
+	box-shadow: 2px 2px 15px #000000;
+}
+
+footer>span {
+	position: relative; /* because top is neglected if static */
+	top: 4px;
+	left: 4px;
+}
+
+h1 {
+	text-align: center;
+}
+
+section {
+	width: 300%;
+	position: fixed;
+	overflow: hidden;
+	height: 84%;
+	transition: right 0.5s, background-color 2s;
+	box-shadow: 2px 2px 15px #000000;
+}
+
+::-webkit-scrollbar {
+	width: 12px;
+}
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.3);
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar-corner {
+	background-color: rgba(255, 255, 255, 0);
+}
+
+#sec_artwork.section_active {
+	right: -201%;
+}
+
+#sec_software_projects.section_active {
+	right: -202%;
+}
+
+#sec_writing.section_active {
+	right: -203%;
+}
+
+#sec_favorite_links.section_active {
+	right: -204%;
+}
+
+#sec_about_me.section_active {
+	right: -205%;
+}
+
+.section_inactive_right {
+	cursor: pointer;
+}
+
+#sec_main.section_inactive_right:HOVER {
+	background-color: yellow;
+}
+
+#sec_artwork.section_inactive_right:HOVER {
+	background-color: yellow;
+	right: -294%;
+}
+
+#sec_software_projects.section_inactive_right:HOVER {
+	background-color: yellow;
+	right: -295%;
+}
+
+#sec_writing.section_inactive_right:HOVER {
+	background-color: yellow;
+	right: -296%;
+}
+
+#sec_favorite_links.section_inactive_right:HOVER {
+	background-color: yellow;
+	right: -297%;
+}
+
+#sec_about_me.section_inactive_right:HOVER {
+	background-color: yellow;
+	right: -298%;
+}
+
+#sec_main.section_inactive_left:HOVER {
+	right: -200%;
+	background-color: yellow;
+}
+
+.section_inactive_left {
+	cursor: pointer;
+}
+
+#sec_artwork.section_inactive_left:HOVER {
+	background-color: yellow;
+	right: -200%;
+}
+
+#sec_software_projects.section_inactive_left:HOVER {
+	background-color: yellow;
+	right: -201%;
+}
+
+#sec_writing.section_inactive_left:HOVER {
+	background-color: yellow;
+	right: -202%;
+}
+
+#sec_favorite_links.section_inactive_left:HOVER {
+	background-color: yellow;
+	right: -203%;
+}
+
+#sec_about_me.section_inactive_left:HOVER {
+	background-color: yellow;
+	right: -204%;
+}
+
+#sec_main.section_inactive_left {
+	right: -200%;
+}
+
+#sec_artwork.section_inactive_left {
+	right: -201%;
+}
+
+#sec_software_projects.section_inactive_left {
+	right: -202%;
+}
+
+#sec_writing.section_inactive_left {
+	right: -203%;
+}
+
+#sec_favorite_links.section_inactive_left {
+	right: -204%;
+}
+
+#sec_about_me.section_inactive_left {
+	right: -205%;
+}
+
+#sec_main {
+	right: -205ٍ%;
+	/*background-color: #E6E6E6;*/
+	/*background-color: #F2E8DC;*/
+	background-color: Silver;
+	z-index: 0;
+}
+
+#sec_artwork {
+	right: -295%;
+	/*background-color: #CCCCCC;*/
+	/*background-color: #E8DAC6;*/
+	background-color: RosyBrown;
+	z-index: 1;
+}
+
+#sec_software_projects {
+	right: -296%;
+	/*background-color: #B2B2B2;*/
+	/*background-color: #E0CAAE;*/
+	background-color: SteelBlue;
+	z-index: 2;
+}
+
+#sec_writing {
+	right: -297%;
+	/*background-color: #999999;*/
+	/*background-color: #D6BC98;*/
+	background-color: Tan;
+	z-index: 3;
+}
+
+#sec_favorite_links {
+	right: -298%;
+	/*background-color: #808080;*/
+	/*background-color: #BDA27E;*/
+	background-color: Teal;
+	z-index: 4;
+}
+
+#sec_about_me {
+	right: -299%;
+	/*background-color: #666666;*/
+	/*background-color: #937E62;*/
+	background-color: SlateGray;
+	z-index: 5;
+}
+
+#sec_artwork.section_panned_submenu {
+	right: -100%;
+}
+
+#sec_artwork.section_panned_content {
+	right: 0;
+}
+
+#img_header_logo {
+	right: 0%;
+	top: 0%;
+	height: 160%; /* with respect to the first non-static parent*/
+}
+
+#div_header_bubble {
+	width: 80%;
+	height: 100%;
+	display: table-cell;
+	vertical-align: middle; /*works because the display is table-cell*/
+	overflow: visible;
+}
+
+@font-face {
+	font-family: mmoneib;
+	src: url("../fonts/MMoneib-Yoken2-CalligraphyPen.otf");
+}
+
+#div_header_bubble>h1 {
+	font-family: mmoneib;
+	font-variant: small-caps;
+	font-size: 320%;
+	text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px
+		1px 0 black; /*4 shadows to simulate black background*/
+	margin: 0 auto; /*override default margins of h1*/
+	cursor: pointer;
+	margin: 0 auto;
+}
+
+#div_header_bubble>h1>.capital_letter {
+	font-size: 150%;
+}
+
+#div_header_bubble>h1>.capital_letter:HOVER {
+	color: yellow;
+}
+
+#div_header_bubble>h1>.small_letter:HOVER {
+	color: yellow;
+}
+
+#div_header_logo {
+	position: absolute;
+	width: 20%;
+	height: 100%;
+	display: table-cell;
+	vertical-align: middle; /*works because the display is table-cell*/
+	pointer-events: none; /*make image undraggable*/
+}
+
+#div_body {
+	position: fixed;
+	top: 13%;
+	/*because body element contains the header and footer inside*/
+	height: 100%;
+	width: 200%;
+	background-color: black;
+	overflow: hidden;
+	left: 0px;
+}
+
+.div_section_title {
+	width: 16em; /*large enough to accommodate for the width of the title
+					prior to rotation, so as to avoid wrapping*/
+	height: 100%;
+	left: -8em; /*half of width to allow for left alignment of this div
+					with the top of the section's title after its rotation*/
+	position: absolute;
+	/*percentage is translated correctly because parent's position is fixed*/
+	display: table; /*to allow vertical alignment in its children*/
+}
+
+.div_section_title>div {
+	/*inherits width and size of parent*/
+	display: table-cell;
+	vertical-align: middle; /*to align the title in the middle*/
+}
+
+.div_section_title>div>h2 {
+	text-align: center; /*to align the title horizontally in the middle*/
+	transform-origin: 50% 0%;
+	/*setting rotation pivot at the middle of the top edge
+								so as to maintain the same left position regardless
+								of the width of the title*/
+	transform: rotate(-90deg);
+	font-size: 150%;
+}
+
+.div_section_menu {
+	position: absolute;
+	height: 90%; /*of its absolute parent*/
+	top: 5%;
+	left: 0%;
+	width: 33.333333%;
+	overflow: auto;
+	/*display scrollbar whenever necessary*/
+}
+
+.div_section_intro>span {
+	float: left;
+	width: 50%;
+	height: 50%;
+	background-color: transparent;
+	position: relative; /*alows absolute positioning of children
+	 			relative to it, and relative is chosen because it is
+	 			the only non-static mode that allows that without
+				affecting this aprent's position behavior, as long as
+				no new positions are giving to the parent*/
+}
+
+.div_section_body {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0%;
+}
+
+.div_section_intro {
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 30% 30%;
+}
+
+#div_artwork_section_intro {
+	background-image: url('../images/mm_cartoon_pondering.svg');
+}
+
+.div_section_intro>span>img {
+	opacity: 0.2;
+	cursor: pointer;
+	position: absolute;
+}
+
+.div_section_intro>span>img:HOVER {
+	opacity: 1;
+}
+
+#img_righttop_bubble_photography {
+	bottom: 10%;
+	left: 10%;
+}
+
+#img_rightbottom_bubble_other {
+	left: 10%;
+	top: 10%;
+}
+
+#img_lefttop_bubble_drawing {
+	right: 10%;
+	bottom: 10%;
+}
+
+#img_leftbottom_bubble_cartoonscomics {
+	right: 10%;
+	top: 10%;
+}
+
+#sec_artwork.section_out {
+	right: -300%;
+}
+
+#sec_software_projects.section_out {
+	right: -300%;
+}
+
+#sec_writing.section_out {
+	right: -300%;
+}
+
+#sec_favorite_links.section_out {
+	right: -300%;
+}
+
+#sec_about_me.section_out {
+	right: -300%;
+}
+
+iframe {
+	left: 5%;
+	top: 5%;
+	width: 90%;
+	height: 90%;
+	position: absolute;
+}
+
+.div_section_submenu {
+	position: absolute;
+	left: 33.33333333%;
+	width: 33.33333333%;
+	height: 100%;
+}
+
+.div_section_content {
+	width: 33.33333333%;
+	height: 100%;
+	position: absolute;
+	right: 0%;
+}
+
+.div_button_back {
+	position: absolute;
+	/*prevents automatic spreading of div horizontally like block elements do by default*/
+	left: 0%;
+	height: 100%;
+	display: table;
+	color: #87CEFA;
+	cursor: pointer;
+	width: 5%;
+}
+
+.div_button_back:HOVER {
+	color: yellow;
+}
+
+.div_button_back>span {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	font-family: mmoneib;
+	font-size: 300%; /*of its original size*/
+	text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px
+		1px 0 black; /*4 shadows to simulate black background*/
+}
+
+.div_content {
+	position: absolute;
+	top: 5%;
+	top: 5%;
+	left: 5%;
+	width: 90%;
+	height: 90%;
+	overflow-y: scroll;
+	padding-right: 0.5%;
+	left: 5%;
+	width: 90%;
+	height: 90%;
+	overflow-y: scroll;
+	padding-right: 0.5%;
+	/* of the parent from which this div dervies its size */
+}
+
+.submenu_header {
+	border: medium;
+	border-style: solid;
+	border-color: black;
+	text-align: center;
+	border-color: black;
+}
+
+.submenu_header:HOVER {
+	background-color: yellow;
+	cursor: pointer;
+}
+
+.div_sub_content {
+	width: 100%;
+	height: 160px; /* 150 for the height of the thumb and 10 for padding */
+	position: relative;
+	/*if absolute, floating children will fall outside */
+	overflow-x: scroll;
+	overflow-y: hidden;
+	margin-bottom: 2%;
+	/* to push below header away from horizontal scroll */
+	transition: height 1s;
+}
+
+.collapsed {
+	overflow-x: hidden;
+	height: 0%;
+}
+
+#div_dystopia_content>span {
+	display: block;
+	/*to act as a div and avoid line break if it passes boundaries of parent. */
+	width: 1400px;
+	/*should be maximum than the real width so that to allow horizontal scrolling;
+		this number amounts for the width of all images enclosed.*/
+}
+
+.div_sub_content>span>img {
+	float: left;
+	position: relative;
+	cursor: pointer;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes rotateImage { 50% {
+	-webkit-transform: rotateY(180deg);
+}
+/* 50% to allow looping without break. */
+}
+
+/* Standard syntax */
+@keyframes rotateImage { 50% {
+	transform: rotateY(180deg);
+}
+
+}
+.div_sub_content>span>img:HOVER {
+	-webkit-animation: rotateImage 5s infinite; /* Chrome, Safari, Opera */
+	animation: rotateImage 5s infinite;
+}
+
+/* Calling by class is more specific than type, therefore overrides it. */
+.sign_collapse {
+	position: absolute;
+	left:1%;
+}

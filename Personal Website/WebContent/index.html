@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Muhammad Moneib's Website</title>
+<link rel="stylesheet" type="text/css" href="styles/main.css">
+<script type="text/javascript">
+	var sections = [ "main", "artwork", "software_projects", "writing",
+			"favorite_links", "about_me" ];
+	var currentSection = 0;
+
+	function initialize() {
+		var submenus = [ "dystopia", "portraits", "illustrations",
+				"caricatures", "sketches" ];
+		for (var i = 0; i < submenus.length; i++) {
+			document
+					.getElementById("div_" + submenus[i] + "_content")
+					.addEventListener(
+							'transitionend',
+							function(event) {
+								/* Passing variable from outside the anonymous function
+								will only have its last value accessible, because the 
+								variable's scope is larger than that of the function, 
+								and the function is called later, when the variable is 
+								rested on its last value in the last iteration 
+								of the loop. 
+								
+								Therefore, the Event object is used instead
+								to access the calling element (currentTarget). The 
+								currentTarget property refers to the originating element 
+								of the event. The target property (which is not used here)
+								refer to any acting element along the bubbling or
+								capturing paths.*/
+								if (document
+										.getElementById(event.currentTarget.id).className
+										.indexOf("collapsed") < 0) {
+									document
+											.getElementById(event.currentTarget.id).style.overflowX = "scroll";
+								}
+							}, false);
+		}
+	}
+
+	function navigateSection(event) {
+		if (event.which == 37) {
+			deactivateSectionToLeft(sections[currentSection]);
+		} else if (event.which == 39) {
+			deactivateSectionToRight(sections[currentSection])
+		} else {
+			return;
+		}
+		activateSection(sections[currentSection]);
+	}
+
+	function getRightSection() {
+		if (currentSection > 0) {
+			moveSection(sections[currentSection], 95 - 1);
+			currentSection -= 1;
+		}
+	}
+
+	function getLeftSection() {
+		if (currentSection < 5) {
+			currentSection += 1;
+			moveSection(sections[currentSection], 0);
+		}
+	}
+
+	function moveSection(sectionName, negativeOffset) {
+		document.getElementById("sec_" + sectionName).style.right = sections.length
+				- currentSection - 1 - negativeOffset + "%";
+	}
+
+	function activateSection(sectionName) {
+		document.getElementById("sec_" + sectionName).className = "section_active";
+	}
+
+	function deactivateSectionToLeft(sectionName) {
+		document.getElementById("sec_" + sectionName).className = "section_inactive_left";
+		if (currentSection < 5) {
+			currentSection += 1;
+		}
+	}
+
+	function deactivateSectionToRight(sectionName) {
+		document.getElementById("sec_" + sectionName).className = "section_inactive_right";
+		if (currentSection > 0) {
+			currentSection -= 1;
+		}
+	}
+
+	function navigateToClick(section, position) {
+		if (section.className == "section_inactive_left") {
+			for (var i = currentSection; i > position; i--) {
+				deactivateSectionToRight(sections[i]);
+			}
+		} else if (section.className == "section_inactive_right") {
+			for (var i = currentSection; i < position; i++) {
+				deactivateSectionToLeft(sections[i]);
+			}
+		} else {
+			return; //to avoid overriding children clicks
+		}
+		activateSection(sections[position]);
+	}
+
+	function colorLetter(letter) {
+		if (letter.style.color != "orange") {
+			letter.style.color = "orange";
+		} else {
+			letter.style.color = null;//reverts to the CSS
+		}
+	}
+
+	function getSectionSubmenu(elementName) {
+		divSecContent = document.getElementById(elementName);
+		divSecContent.removeAttribute("hidden");
+		panSectionToSubmenu(sections[currentSection]);
+		moveInactiveRightSectionsOut();
+	}
+
+	function moveInactiveRightSectionsOut() {
+		for (i = currentSection + 1; i < sections.length; i++) {
+			document.getElementById("sec_" + sections[i]).className = "section_out";
+		}
+	}
+
+	function moveInactiveRightSectionsIn() {
+		for (i = currentSection + 1; i < sections.length; i++) {
+			document.getElementById("sec_" + sections[i]).className = "section_inactive_right";
+		}
+	}
+
+	function panSectionToSubmenu(sectionName) {
+		document.getElementById("sec_" + sectionName).className = "section_panned_submenu";
+	}
+
+	function getSectionMenu() {
+		unpanSection(sections[currentSection]);
+	}
+
+	function unpanSection(sectionName) {
+		document.getElementById("sec_" + sectionName).className = "section_active";
+		moveInactiveRightSectionsIn();
+	}
+
+	function toggleCollapseExpand(headerDivElementID) {
+		idPrefix = headerDivElementID.id.replace(/_header/, "");
+
+		submenuDivElement = document.getElementById(idPrefix + "_content");
+		collapsedSignElement = document.getElementById(idPrefix
+				+ "_collapsed_sign");
+		expandedSignElement = document.getElementById(idPrefix
+				+ "_expanded_sign");
+
+		if (submenuDivElement.className.indexOf("collapsed", 0) > 0) {
+			submenuDivElement.className = submenuDivElement.className.replace(
+					/ collapsed/, "");
+
+			expandedSignElement.removeAttribute("hidden");
+			collapsedSignElement.setAttribute("hidden", "hidden");
+
+		} else {
+			submenuDivElement.style.overflowX = "hidden";
+			submenuDivElement.className += " collapsed";
+
+			collapsedSignElement.removeAttribute("hidden");
+			expandedSignElement.setAttribute("hidden", "hidden")
+		}
+	}
+</script>
+</head>
+<header>
+	<div id="div_header_bubble">
+		<h1>
+			<span class="capital_letter" onclick="colorLetter(this)">M</span><span
+				class="small_letter" onclick="colorLetter(this)">u</span><span
+				class="small_letter" onclick="colorLetter(this)">h</span><span
+				class="small_letter" onclick="colorLetter(this)">a</span><span
+				class="small_letter" onclick="colorLetter(this)">m</span><span
+				class="small_letter" onclick="colorLetter(this)">m</span><span
+				class="small_letter" onclick="colorLetter(this)">a</span><span
+				class="small_letter" onclick="colorLetter(this)">d</span> <span
+				class="capital_letter" onclick="colorLetter(this)">M</span><span
+				class="small_letter" onclick="colorLetter(this)">o</span><span
+				class="small_letter" onclick="colorLetter(this)">n</span><span
+				class="small_letter" onclick="colorLetter(this)">e</span><span
+				class="small_letter" onclick="colorLetter(this)">i</span><span
+				class="small_letter" onclick="colorLetter(this)">b</span><span
+				class="small_letter" onclick="colorLetter(this)">'</span><span
+				class="small_letter" onclick="colorLetter(this)">s</span> <span
+				class="small_letter" onclick="colorLetter(this)">W</span><span
+				class="small_letter" onclick="colorLetter(this)">e</span><span
+				class="small_letter" onclick="colorLetter(this)">b</span><span
+				class="small_letter" onclick="colorLetter(this)">s</span><span
+				class="small_letter" onclick="colorLetter(this)">i</span><span
+				class="small_letter" onclick="colorLetter(this)">t</span><span
+				class="small_letter" onclick="colorLetter(this)">e</span>
+		</h1>
+	</div>
+	<div id="div_header_logo">
+		<!-- Hooking the initialize message to the header image, because it loads
+		 faster than the whole body, hence not using the load even of the body
+		 element. -->
+		<img id="img_header_logo" alt="MMoneib Header Image"
+			src="images/mmoneib_website_glowy_logo.svg" onload="initialize()">
+	</div>
+</header>
+<body onkeydown="navigateSection(event)">
+	<div id="div_body">
+		<section id="sec_about_me" class="section_inactive_right"
+			onclick="navigateToClick(this,5)">
+			<div class="div_section_title">
+				<div>
+					<h2>ABOUT ME</h2>
+				</div>
+			</div>
+		</section>
+		<section id="sec_favorite_links" class="section_inactive_right"
+			onclick="navigateToClick(this,4)">
+			<div class="div_section_title">
+				<div>
+					<h2>FAVORITE LINKS</h2>
+				</div>
+			</div>
+		</section>
+		<section id="sec_writing" class="section_inactive_right"
+			onclick="navigateToClick(this,3)">
+			<div class="div_section_title">
+				<div>
+					<h2>WRITING</h2>
+				</div>
+			</div>
+		</section>
+		<section id="sec_software_projects" class="section_inactive_right"
+			onclick="navigateToClick(this,2)">
+			<div class="div_section_title">
+				<div>
+					<h2>SOFTWARE PROJECTS</h2>
+				</div>
+			</div>
+		</section>
+		<section id="sec_artwork" class="section_inactive_right"
+			onclick="navigateToClick(this,1)">
+			<div class="div_section_title">
+				<div>
+					<h2>ARTWORK</h2>
+				</div>
+			</div>
+			<div class="div_section_body">
+				<div class="div_section_menu">
+					<div id="div_artwork_section_intro" class="div_section_intro">
+						<!-- Changing only the width of the images maintains their 
+								aspect ratio while allowing scalability, since the size
+								is now tied to that of its parent (i.e. 50% of the
+								width of the span.-->
+						<span> <img id="img_lefttop_bubble_drawing"
+							src="images/bubble_lefttop_drawing.svg" width="50%" alt="Drawing"
+							onclick="getSectionSubmenu('div_artwork_section_drawing')" />
+						</span><span><img id="img_righttop_bubble_photography"
+							src="images/bubble_righttop_photography.svg" width="50%"
+							alt="Photography" /></span><span><img
+							id="img_leftbottom_bubble_cartoonscomics"
+							src="images/bubble_leftbottom_cartoonscomics.svg" width="50%"
+							alt="Cartoons & Comics" /></span><span><img
+							id="img_rightbottom_bubble_other"
+							src="images/bubble_rightbottom_other.svg" width="50%" alt="Other" /></span>
+					</div>
+				</div>
+				<div id="div_artwork_section_drawing" class="div_section_submenu"
+					hidden="hidden">
+					<div class="div_button_back" onclick="getSectionMenu()">
+						<span>&lt;</span>
+					</div>
+					<div class="div_content">
+						<div id="div_dystopia_header" class="submenu_header"
+							onclick="toggleCollapseExpand(this)">
+							<h2 id="div_dystopia_collapsed_sign" class="sign_collapse">+</h2>
+							<!-- If hidden attribute in HTML is in conflict with display
+							attribute of CSS (ex. inline), the latter will override. -->
+							<h2 id="div_dystopia_expanded_sign" class="sign_collapse"
+								hidden="hidden">-</h2>
+							<h2>DYSTOPIA</h2>
+						</div>
+						<!-- Assigning multiple classes by separating their names with 
+						a space allows transitioning of classed elements. -->
+						<div id="div_dystopia_content" class="div_sub_content collapsed">
+							<span> <img
+								src="drawing/thumbs/ascension_to_nowhere_tn.jpg"
+								alt="Ascension to Nowhere" title="Ascension to Nowhere" /><img
+								src="drawing/thumbs/marionette_tn.jpg" /><img
+								src="drawing/thumbs/deluded_by_reality_tn.jpg" /><img
+								src="drawing/thumbs/memento_mori_tn.jpg" /><img
+								src="drawing/thumbs/menace_of_time_tn.jpg" /><img
+								src="drawing/thumbs/menace_of_time_tn.jpg" /><img
+								src="drawing/thumbs/menace_of_time_tn.jpg" />
+							</span>
+						</div>
+						<div id="div_portraits_header" class="submenu_header"
+							onclick="toggleCollapseExpand(this)">
+							<h2 id="div_portraits_collapsed_sign" class="sign_collapse">+</h2>
+							<!-- If hidden attribute in HTML is in conflict with display
+							attribute of CSS (ex. inline), the latter will override. -->
+							<h2 id="div_portraits_expanded_sign" class="sign_collapse"
+								hidden="hidden">-</h2>
+							<h2>PORTRAITS</h2>
+						</div>
+						<div id="div_portraits_content" class="div_sub_content collapsed">
+							<span><img src="drawing/thumbs/alexander_tn.jpg" /> <img
+								src="drawing/thumbs/monalisa_tn.jpg" /></span>
+						</div>
+						<div id="div_illustrations_header" class="submenu_header"
+							onclick="toggleCollapseExpand(this)">
+							<h2 id="div_illustrations_collapsed_sign" class="sign_collapse">+</h2>
+							<!-- If hidden attribute in HTML is in conflict with display
+							attribute of CSS (ex. inline), the latter will override. -->
+							<h2 id="div_illustrations_expanded_sign" class="sign_collapse"
+								hidden="hidden">-</h2>
+							<h2>ILLUSTRATIONS</h2>
+						</div>
+						<div id="div_illustrations_content"
+							class="div_sub_content collapsed">bbbb</div>
+						<div id="div_caricatures_header" class="submenu_header"
+							onclick="toggleCollapseExpand(this)">
+							<h2 id="div_caricatures_collapsed_sign" class="sign_collapse">+</h2>
+							<!-- If hidden attribute in HTML is in conflict with display
+							attribute of CSS (ex. inline), the latter will override. -->
+							<h2 id="div_caricatures_expanded_sign" class="sign_collapse"
+								hidden="hidden">-</h2>
+							<h2>CARICATURES</h2>
+						</div>
+						<div id="div_caricatures_content"
+							class="div_sub_content collapsed">bbbb</div>
+						<div id="div_sketches_header" class="submenu_header"
+							onclick="toggleCollapseExpand(this)">
+							<h2 id="div_sketches_collapsed_sign" class="sign_collapse">+</h2>
+							<!-- If hidden attribute in HTML is in conflict with display
+							attribute of CSS (ex. inline), the latter will override. -->
+							<h2 id="div_sketches_expanded_sign" class="sign_collapse"
+								hidden="hidden">-</h2>
+							<h2>SKETCHES</h2>
+						</div>
+						<div id="div_sketches_content" class="div_sub_content collapsed">
+							cccc<br> <br>sa
+						</div>
+					</div>
+				</div>
+				<div class="div_section_content">
+					<iframe src="http://www.google.com"></iframe>
+				</div>
+				<div></div>
+				<div></div>
+			</div>
+		</section>
+		<section id="sec_main" class="section_active"
+			onclick="navigateToClick(this,0)">
+			<div class="div_section_title">
+				<div>
+					<h2>MAIN</h2>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+<footer>
+	<span>COPYRIGHT 2015, MUHAMMAD MONEIB.</span>
+</footer>
+</html>
