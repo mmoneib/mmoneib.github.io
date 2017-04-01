@@ -168,6 +168,29 @@
 			expandedSignElement.setAttribute("hidden", "hidden")
 		}
 	}
+
+	function getContentFromSubmenu(sectionName) {
+		document.getElementById("sec_" + sectionName).className = "section_panned_content";
+
+		//Using AJAX.
+		var xhr = new XMLHttpRequest();
+
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				/*xhr.responseXML return null for anything but XML or HTML. 
+				That's why I am using xhr.response to return JSON.*/
+				document.getElementById("img_artwork").src = JSON
+						.parse(xhr.response).image;
+				document.getElementById("img_artwork").alt = JSON
+						.parse(xhr.response).title;
+				document.getElementById("lbl_artwork_caption").innerText = JSON
+						.parse(xhr.response).title;
+			}
+		}
+
+		xhr.open("GET", "./objects/deluded_by_reality.json", true);
+		xhr.send();
+	}
 </script>
 </head>
 <header>
@@ -186,16 +209,7 @@
 				class="small_letter" onclick="colorLetter(this)">n</span><span
 				class="small_letter" onclick="colorLetter(this)">e</span><span
 				class="small_letter" onclick="colorLetter(this)">i</span><span
-				class="small_letter" onclick="colorLetter(this)">b</span><span
-				class="small_letter" onclick="colorLetter(this)">'</span><span
-				class="small_letter" onclick="colorLetter(this)">s</span> <span
-				class="small_letter" onclick="colorLetter(this)">W</span><span
-				class="small_letter" onclick="colorLetter(this)">e</span><span
-				class="small_letter" onclick="colorLetter(this)">b</span><span
-				class="small_letter" onclick="colorLetter(this)">s</span><span
-				class="small_letter" onclick="colorLetter(this)">i</span><span
-				class="small_letter" onclick="colorLetter(this)">t</span><span
-				class="small_letter" onclick="colorLetter(this)">e</span>
+				class="small_letter" onclick="colorLetter(this)">b</span>
 		</h1>
 	</div>
 	<div id="div_header_logo">
@@ -287,7 +301,8 @@
 						<div id="div_dystopia_content" class="div_sub_content collapsed">
 							<span> <img
 								src="drawing/thumbs/ascension_to_nowhere_tn.jpg"
-								alt="Ascension to Nowhere" title="Ascension to Nowhere" /><img
+								alt="Ascension to Nowhere" title="Ascension to Nowhere"
+								onclick="getContentFromSubmenu('artwork')" /><img
 								src="drawing/thumbs/marionette_tn.jpg" /><img
 								src="drawing/thumbs/deluded_by_reality_tn.jpg" /><img
 								src="drawing/thumbs/memento_mori_tn.jpg" /><img
@@ -346,7 +361,9 @@
 					</div>
 				</div>
 				<div class="div_section_content">
-					<iframe src="http://www.google.com"></iframe>
+					<div class="div_content_artwork">
+						<img id="img_artwork" /><br> <label id="lbl_artwork_caption"></label>
+					</div>
 				</div>
 				<div></div>
 				<div></div>
@@ -363,6 +380,6 @@
 	</div>
 </body>
 <footer>
-	<span>COPYRIGHT 2015, MUHAMMAD MONEIB.</span>
+	<span>COPYRIGHT 2017, MUHAMMAD MONEIB.</span>
 </footer>
 </html>
