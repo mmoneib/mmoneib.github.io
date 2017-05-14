@@ -283,9 +283,9 @@
 				</div>
 				<div id="div_artwork_section_drawing" class="div_section_submenu"
 					hidden="hidden">
-					<div class="div_button_back" onclick="getSectionMenu()">
+					<span class="div_button_back" onclick="getSectionMenu()">
 						<span>&lt;</span>
-					</div>
+					</span>
 					<div class="div_content">
 						<div id="div_dystopia_header" class="submenu_header"
 							onclick="toggleCollapseExpand(this)">
@@ -361,9 +361,10 @@
 					</div>
 				</div>
 				<div class="div_section_content">
-					<div class="div_button_back" onclick="getSectionMenu()">
+					<!-- Span to avoid conflict with cascaded styling of div. -->
+					<span class="div_button_back" onclick="getSectionMenu()">
 						<span>&lt;</span>
-					</div>
+					</span>
 					<div class="div_content_artwork">
 						<img id="img_artwork" /><br> <label id="lbl_artwork_caption"></label>
 					</div>
