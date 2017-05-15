@@ -370,17 +370,25 @@ section {
 	background-size: 30% 30%;
 }
 
-#div_artwork_section_intro {
-	background-image: url('../images/mm_cartoon_pondering.svg');
-}
 
-.div_section_intro>span>img {
+.div_section_intro>span>.img_bubble {
 	opacity: 0.2;
 	cursor: pointer;
 	position: absolute;
+	z-index: 10; /*Just in case they overlap with the cartoon character.*/
 }
 
-.div_section_intro>span>img:HOVER {
+.div_section_intro>.span_img_character {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.div_section_intro>span>.img_bubble:HOVER {
 	opacity: 1;
 }
 
@@ -444,28 +452,24 @@ iframe {
 	height: 100%;
 	position: absolute;
 	right: 0%;
-	
 	/* Firefox */
-    display:-moz-box;
-    -moz-box-pack:center;
-    -moz-box-align:center;
-
-    /* Safari and Chrome */
-    display:-webkit-box;
-    -webkit-box-pack:center;
-    -webkit-box-align:center;
-
-    /* W3C */
-    display:box;
-    box-pack:center;
-    box-align:center;
+	display: -moz-box;
+	-moz-box-pack: center;
+	-moz-box-align: center;
+	/* Safari and Chrome */
+	display: -webkit-box;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+	/* W3C */
+	display: box;
+	box-pack: center;
+	box-align: center;
 }
 
 .div_section_content>div {
 	box-shadow: 2px 2px 15px #000000;
 	padding: 20px;
 	background-color: white;
-	
 }
 
 .div_button_back {
@@ -535,17 +539,15 @@ iframe {
 	transition: height 1s;
 }
 
+.div_sub_content>span {
+	/*The contents slider will grow horizontaly dynamically as elements are added.
+	No need to specify width.*/
+	display: flex;
+}
+
 .collapsed {
 	overflow-x: hidden;
 	height: 0%;
-}
-
-#div_dystopia_content>span {
-	display: block;
-	/*to act as a div and avoid line break if it passes boundaries of parent. */
-	width: 1400px;
-	/*should be maximum than the real width so that to allow horizontal scrolling;
-		this number amounts for the width of all images enclosed.*/
 }
 
 .div_sub_content>span>img {
@@ -555,18 +557,16 @@ iframe {
 }
 
 /* Chrome, Safari, Opera */
-@-webkit-keyframes rotateImage { 50% {
-	-webkit-transform: rotateY(180deg);
-}
-/* 50% to allow looping without break. */
+@-webkit-keyframes rotateImage { 
+	50% {-webkit-transform: rotateY(180deg);}
+	/* 50% to allow looping without break. */
 }
 
 /* Standard syntax */
-@keyframes rotateImage { 50% {
-	transform: rotateY(180deg);
+@keyframes rotateImage { 
+	50% {transform: rotateY(180deg);}
 }
-
-}
+	
 .div_sub_content>span>img:HOVER {
 	-webkit-animation: rotateImage 5s infinite; /* Chrome, Safari, Opera */
 	animation: rotateImage 5s infinite;
@@ -575,5 +575,5 @@ iframe {
 /* Calling by class is more specific than type, therefore overrides it. */
 .sign_collapse {
 	position: absolute;
-	left:1%;
+	left: 1%;
 }

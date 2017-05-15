@@ -169,7 +169,7 @@
 		}
 	}
 
-	function getContentFromSubmenu(sectionName) {
+	function getContentFromSubmenu(sectionName, objectTitle) {
 		document.getElementById("sec_" + sectionName).className = "section_panned_content";
 
 		//Using AJAX.
@@ -188,7 +188,7 @@
 			}
 		}
 
-		xhr.open("GET", "./objects/deluded_by_reality.json", true);
+		xhr.open("GET", "./objects/" + objectTitle + ".json", true);
 		xhr.send();
 	}
 </script>
@@ -264,27 +264,33 @@
 			<div class="div_section_body">
 				<div class="div_section_menu">
 					<div id="div_artwork_section_intro" class="div_section_intro">
+						<!-- Depending on image's height for scaling, as it is the 
+						predominent side on desktops. This might need to be revisited 
+						for mobiles running on the default porterait mode. -->
+						<span class="span_img_character"><img alt="What to choose?"
+							src="images/mm_cartoon_pondering.svg" height="50%"></span>
 						<!-- Changing only the width of the images maintains their 
 								aspect ratio while allowing scalability, since the size
 								is now tied to that of its parent (i.e. 50% of the
 								width of the span.-->
 						<span> <img id="img_lefttop_bubble_drawing"
-							src="images/bubble_lefttop_drawing.svg" width="50%" alt="Drawing"
+							class="img_bubble" src="images/bubble_lefttop_drawing.svg"
+							height="50%" alt="Drawing"
 							onclick="getSectionSubmenu('div_artwork_section_drawing')" />
 						</span><span><img id="img_righttop_bubble_photography"
-							src="images/bubble_righttop_photography.svg" width="50%"
-							alt="Photography" /></span><span><img
-							id="img_leftbottom_bubble_cartoonscomics"
-							src="images/bubble_leftbottom_cartoonscomics.svg" width="50%"
+							class="img_bubble" src="images/bubble_righttop_photography.svg"
+							height="50%" alt="Photography" /></span><span><img
+							id="img_leftbottom_bubble_cartoonscomics" class="img_bubble"
+							src="images/bubble_leftbottom_cartoonscomics.svg" height="50%"
 							alt="Cartoons & Comics" /></span><span><img
-							id="img_rightbottom_bubble_other"
-							src="images/bubble_rightbottom_other.svg" width="50%" alt="Other" /></span>
+							id="img_rightbottom_bubble_other" class="img_bubble"
+							src="images/bubble_rightbottom_other.svg" height="50%"
+							alt="Other" /></span>
 					</div>
 				</div>
 				<div id="div_artwork_section_drawing" class="div_section_submenu"
 					hidden="hidden">
-					<span class="div_button_back" onclick="getSectionMenu()">
-						<span>&lt;</span>
+					<span class="div_button_back" onclick="getSectionMenu()"> <span>&lt;</span>
 					</span>
 					<div class="div_content">
 						<div id="div_dystopia_header" class="submenu_header"
@@ -299,16 +305,31 @@
 						<!-- Assigning multiple classes by separating their names with 
 						a space allows transitioning of classed elements. -->
 						<div id="div_dystopia_content" class="div_sub_content collapsed">
-							<span> <img
+							<span> <img src="drawing/thumbs/pendolum_tn.jpg"
+								alt="Pendolum" title="Pendolum"
+								onclick="getContentFromSubmenu('artwork','pendolum')" /><img
+								src="drawing/thumbs/memento_mori_tn.jpg" alt="Memento Mori"
+								title="Memento Mori"
+								onclick="getContentFromSubmenu('artwork','memento_mori')" /><img
+								src="drawing/thumbs/reflection_of_true_self_tn.jpg"
+								alt="Reflection of True Self" title="Reflection of True Self"
+								onclick="getContentFromSubmenu('artwork','reflection_of_true_self')" /><img
 								src="drawing/thumbs/ascension_to_nowhere_tn.jpg"
 								alt="Ascension to Nowhere" title="Ascension to Nowhere"
-								onclick="getContentFromSubmenu('artwork')" /><img
-								src="drawing/thumbs/marionette_tn.jpg" /><img
-								src="drawing/thumbs/deluded_by_reality_tn.jpg" /><img
-								src="drawing/thumbs/memento_mori_tn.jpg" /><img
-								src="drawing/thumbs/menace_of_time_tn.jpg" /><img
-								src="drawing/thumbs/menace_of_time_tn.jpg" /><img
-								src="drawing/thumbs/menace_of_time_tn.jpg" />
+								onclick="getContentFromSubmenu('artwork','ascension_to_nowhere')" /><img
+								src="drawing/thumbs/the_fond_deceit_of_capitalism_tn.jpg"
+								alt="The Fond Deceit of Capitalism"
+								title="The Fond Deceit of Capitalism"
+								onclick="getContentFromSubmenu('artwork','the_fond_deceit_of_capitalism')" /><img
+								src="drawing/thumbs/marionette_tn.jpg" alt="Marionette"
+								title="Marionette"
+								onclick="getContentFromSubmenu('artwork','marionette')" /><img
+								src="drawing/thumbs/menace_of_time_tn.jpg" alt="Menace of Time"
+								title="Menace of Time"
+								onclick="getContentFromSubmenu('artwork','menace_of_time')" /><img
+								src="drawing/thumbs/deluded_by_reality_tn.jpg"
+								alt="Deluded by Reality" title="Deluded by Reality"
+								onclick="getContentFromSubmenu('artwork','deluded_by_reality')" />
 							</span>
 						</div>
 						<div id="div_portraits_header" class="submenu_header"
@@ -362,8 +383,7 @@
 				</div>
 				<div class="div_section_content">
 					<!-- Span to avoid conflict with cascaded styling of div. -->
-					<span class="div_button_back" onclick="getSectionMenu()">
-						<span>&lt;</span>
+					<span class="div_button_back" onclick="getSectionMenu()"> <span>&lt;</span>
 					</span>
 					<div class="div_content_artwork">
 						<img id="img_artwork" /><br> <label id="lbl_artwork_caption"></label>
