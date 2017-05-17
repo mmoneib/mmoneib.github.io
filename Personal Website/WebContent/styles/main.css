@@ -11,6 +11,7 @@ body { /*encompasses the header and the footer as well*/
 	/*explicitly set to allow for children's absolute sizing*/
 	font-family: mmoneib;
 	font-variant: small-caps;
+	font-size: 150%;
 }
 
 header {
@@ -267,7 +268,7 @@ section {
 #div_header_bubble>h1 {
 	font-family: mmoneib;
 	font-variant: small-caps;
-	font-size: 320%;
+	font-size: 220%;
 	text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px
 		1px 0 black; /*4 shadows to simulate black background*/
 	margin: 0 auto; /*override default margins of h1*/
@@ -276,7 +277,7 @@ section {
 }
 
 #div_header_bubble>h1>.capital_letter {
-	font-size: 150%;
+	font-size: 120%;
 }
 
 #div_header_bubble>h1>.capital_letter:HOVER {
@@ -331,7 +332,7 @@ section {
 								so as to maintain the same left position regardless
 								of the width of the title*/
 	transform: rotate(-90deg);
-	font-size: 150%;
+	font-size: 100%;
 }
 
 .div_section_menu {
@@ -369,7 +370,6 @@ section {
 	background-position: center;
 	background-size: 30% 30%;
 }
-
 
 .div_section_intro>span>.img_bubble {
 	opacity: 0.2;
@@ -452,24 +452,26 @@ iframe {
 	height: 100%;
 	position: absolute;
 	right: 0%;
-	/* Firefox */
-	display: -moz-box;
-	-moz-box-pack: center;
-	-moz-box-align: center;
-	/* Safari and Chrome */
-	display: -webkit-box;
-	-webkit-box-pack: center;
-	-webkit-box-align: center;
-	/* W3C */
-	display: box;
-	box-pack: center;
-	box-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.div_section_content>div {
+.div_content_container {
+	overflow: auto;
+	padding-right: 2%;
+	Height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.div_content_artwork {
 	box-shadow: 2px 2px 15px #000000;
 	padding: 20px;
 	background-color: white;
+	margin-top: 3%;
+	margin-bottom: 3%;
 }
 
 .div_button_back {
@@ -557,16 +559,20 @@ iframe {
 }
 
 /* Chrome, Safari, Opera */
-@-webkit-keyframes rotateImage { 
-	50% {-webkit-transform: rotateY(180deg);}
-	/* 50% to allow looping without break. */
+@
+-webkit-keyframes rotateImage { 50% {
+	-webkit-transform: rotateY(180deg);
+}
+/* 50% to allow looping without break. */
 }
 
 /* Standard syntax */
-@keyframes rotateImage { 
-	50% {transform: rotateY(180deg);}
+@
+keyframes rotateImage { 50% {
+	transform: rotateY(180deg);
 }
-	
+
+}
 .div_sub_content>span>img:HOVER {
 	-webkit-animation: rotateImage 5s infinite; /* Chrome, Safari, Opera */
 	animation: rotateImage 5s infinite;
@@ -576,4 +582,20 @@ iframe {
 .sign_collapse {
 	position: absolute;
 	left: 1%;
+}
+
+.div_horizontal_column {
+	height:95%;
+	width: 39%;
+	color: green;
+	padding-left: 5%;
+	padding-right: 5%;
+	margin-top: 3%;
+	display:inline-block;'
+}
+
+.div_container_centered {
+	display: flex;
+	align-items: center;
+	justify-content:center;
 }
