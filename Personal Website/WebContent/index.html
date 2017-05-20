@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Muhammad Moneib's Website</title>
-<link rel="stylesheet" type="text/css" href="styles/main.css">
+<link rel="stylesheet" type="text/css" href="styles/main.css?12">
 <script type="text/javascript">
 	var sections = [ "main", "artwork", "software_projects", "writing",
 			"favorite_links", "about_me" ];
 	var currentSection = 0;
 
+	/*Not used anymore.*/
 	function initialize() {
 		var submenus = [ "dystopia", "portraits", "illustrations",
 				"caricatures", "sketches" ];
@@ -194,6 +195,9 @@
 </script>
 </head>
 <header>
+	<!-- TODO: Add a menu button to spread the sections horizontaly across the screen
+		so that the user can choose easily. Especially important for mobile devices
+		when using portrait orientation. -->
 	<div id="div_header_bubble">
 		<h1>
 			<span class="capital_letter" onclick="colorLetter(this)">M</span><span
@@ -215,9 +219,10 @@
 	<div id="div_header_logo">
 		<!-- Hooking the initialize message to the header image, because it loads
 		 faster than the whole body, hence not using the load even of the body
-		 element. -->
+		 element. 
+		 This is not used anymore.-->
 		<img id="img_header_logo" alt="MMoneib Header Image"
-			src="images/mmoneib_website_glowy_logo.svg" onload="initialize()">
+			src="images/mmoneib_website_glowy_logo.svg">
 	</div>
 </header>
 <body onkeydown="navigateSection(event)">
@@ -231,13 +236,143 @@
 			</div>
 			<div class="div_section_body">
 				<div class="div_section_menu">
-					<div class="div_horizontal_column"></div>
-					<div class="div_horizontal_column">
-						<div class="div_container_centered">
+					<div class="div_anchor">
+						<div id="div_about_me_info">
+							<div class="div_background">
+								<div id="div_about_info_caption" class="">
+									<p>Welcome to my website.</p>
+									<p>My name is, obviously, Muhammad Moneib, and I am a
+										software engineer by profession as well as an amateur artist,
+										writer, and traveller -- or that's what I'd rather believe.</p>
+								</div>
+								<div id="div_about_info_image" class="lowered_content"></div>
+								<div id="div_about_info_caption" class="">
+									<p>I was born in Cairo, Egypt back in 1984, which happens
+										to be the title of my favorite book so far. There's so much to
+										learn about the current world from Orwell's novel, especially
+										if you are a defensive pessimist like myself. The idea of
+										defensive pessimism is to expect the worst while you hope for
+										the best, which will protect you from disappointment and
+										unwelcomed surprises, hence the defensive part.</p>
+								</div>
+								<div id="div_about_info_image" class="lowered_content"></div>
+								<div id="div_about_info_caption" class="">
+									<p>This I have learned during my thirty-something years on
+										this planet the hard way, through trial and error, which is
+										the same mechanism I have employed to get the hang of all my
+										self-taught skill, including photgraphy, writing, and drawing,
+										among others.</p>
+								</div>
+								<div id="div_about_info_image" class="lowered_content"></div>
+								<div id="div_about_info_caption" class="">
+									<p>For instance, I have always been fascinated by people
+										who seemed to be so talented in producing the likeness of
+										people on paper, and despite several trials in my late teens,
+										I failed to make anything that I could deem successful, but it
+										got me hooked on the task nevertheless. Photography being
+										easier, I started taking photos with my mobile camera back in
+										2002, but it wasn't until 2007 when I focused on drawing
+										regularly, something which I have been doing ever since.</p>
+								</div>
+								<div id="div_about_info_image" class="lowered_content"></div>
+								<div id="div_about_info_caption" class="">
+									<p>For an escavator of my old skertches from that date, he
+										would find drawings that could be done by a child, let alone a
+										23 years old, that if he compares them to my current drawings,
+										he would conclude decisively that practice doesn't make
+										perfect, but it, most certainly, makes better.</p>
+								</div>
+								<div id="div_about_info_image" class="lowered_content"></div>
+								<div id="div_about_info_caption" class="">
+									<p>In the world of arts, I have found something much better
+										than immitating reality in the form of people's likeness; I
+										have found a very effective outlet for my most nagging
+										thoughts and a soother of the most notorious of my inner
+										demons, demands which even writing, with all its therapeutical
+										effects, couldn't satisfy. Yet through writing I am able to
+										document and communicate the details of my abstract ideas for
+										my own consumption before anyone else's.</p>
+								</div>
+								<div id="div_about_info_image" class="lowered_content"></div>
+								<div id="div_about_info_caption" class="">
+									<p>I have had a handful of articles and essays published
+										online, and a poem publsihed in an online literary magazine --
+										yes, sometimes I write poems and I am not ashamed of it -- but
+										the dearest writings to me are those touching the the personal
+										side of things, which remind myeself of a moment I have lived,
+										or a book I have read, or an idea that just sparked inside my
+										brain, not to mention a code that does something useful.</p>
+								</div>
+								<div id="div_about_info_image" class="lowered_content"></div>
+								<div id="div_about_info_caption" class="">
+									<p>Sitting in front of a computer for a living can be a
+										very boring thing, unless you put it for a good use.
+										Technoligy, per se, is becoming more of a dillemma each day,
+										something which is supposed to make lives simpler is clearly
+										not. We seem to have everything in the palm of our hand, but
+										in reality we have nothing but some silicon chips and nagging
+										sounds. We are trading, rather idiotically, the wealth of
+										nature with the false promises of the virtual worlds, with
+										greed as the precursor for this. Ironically enough, we are
+										literally constructing our own destruction, unless something
+										is done quickly to change the status-quo.</p>
+								</div>
+								<div id="div_about_info_image" class="lowered_content"></div>
+								<div id="div_about_info_caption" class="">
+									<p>That's how I feel connected with earth. Being a tech guy
+										who loves nature and recognizes the dangers of technology on
+										it, I too feel the irony. Yet it doesn't have to be that way.
+										This flase dichtomy can be put to rest as humans drift away
+										from competition towards cooperation, maintain a steady
+										population, and discover new ways to immerse reality into
+										technology. Humans would do much better if they too embrace
+										the defensive pessimist's attitude.</p>
+								</div>
+								<div id="div_about_info_image" class="lowered_content"></div>
+								<div id="div_about_info_caption" class="">
+									<p>No matter where I go, I find the same patterns, albeit
+										in different incarnations. I have travelled solely to much of
+										Europe and some of the middle-east, and, despite the different
+										cultures and quality of lives, I have spotted the same
+										expressions, the same worries, and even the same prejudices.
+										We are not that different if we look deep enough, and that
+										should be enough to get us together to tackle our common
+										dangers. Yet inspite of the geographical closeness between
+										many of these places -- and even within the same societies --
+										there remain tensions which are clear as the contrast becomes
+										stark between the developed and the developing world, between
+										the green and arid lands, and between the liberal and
+										conservative mindsets.</p>
+								</div>
+								<div id="div_about_info_image" class="lowered_content"></div>
+								<div id="div_about_info_caption" class="">
+									<p>Hence, the challenges for unification and cooperation
+										are immense, whether at the global or personal levels. It is
+										my desire to bring this reality into technology and into art
+										as much as I can. Be it through drawing, photography, writing,
+										coding...etc., what is important is to work in a certain
+										direction with whatever tools one has got. One of these tools
+										is this website, which I am building for myself in the first
+										place to enhance my front-end development skills in addition
+										to collecting and showcasing my different works in a single
+										place. I hope it would be beneficial to some others as well.</p>
+								</div>
+								<div id="div_about_info_caption" class="">
+									<p>If you have made it that far through reading every word,
+										then thanks for your time. I believe my freewriting exercise
+										for today is over.</p>
+									<p>Muhammad Moneib</p>
+								</div>
+							</div>
+						</div>
+						<!-- TODO: Make the background a slideshow. -->
+						<div id="div_about_me_image" class="div_horizontal_column">
 							<img src="images/mm_cartoon_standing.png"
 								alt="Standing Moneib Cartoon" />
+
 						</div>
 					</div>
+
 				</div>
 			</div>
 		</section>
@@ -274,30 +409,30 @@
 			</div>
 			<div class="div_section_body">
 				<div class="div_section_menu">
-					<div id="div_artwork_section_intro" class="div_section_intro">
-						<!-- Depending on image's height for scaling, as it is the 
+
+					<!-- Depending on image's height for scaling, as it is the 
 						predominent side on desktops. This might need to be revisited 
 						for mobiles running on the default porterait mode. -->
-						<span class="span_img_character"><img alt="What to choose?"
-							src="images/mm_cartoon_pondering.svg" height="50%"></span>
-						<!-- Changing only the width of the images maintains their 
+					<span class="span_img_character"><img alt="What to choose?"
+						src="images/mm_cartoon_pondering.svg" height="50%"></span>
+					<!-- Changing only the width of the images maintains their 
 								aspect ratio while allowing scalability, since the size
 								is now tied to that of its parent (i.e. 50% of the
 								width of the span.-->
-						<span> <img id="img_lefttop_bubble_drawing"
-							class="img_bubble" src="images/bubble_lefttop_drawing.svg"
-							height="50%" alt="Drawing"
-							onclick="getSectionSubmenu('div_artwork_section_drawing')" />
-						</span><span><img id="img_righttop_bubble_photography"
-							class="img_bubble" src="images/bubble_righttop_photography.svg"
-							height="50%" alt="Photography" /></span><span><img
-							id="img_leftbottom_bubble_cartoonscomics" class="img_bubble"
-							src="images/bubble_leftbottom_cartoonscomics.svg" height="50%"
-							alt="Cartoons & Comics" /></span><span><img
-							id="img_rightbottom_bubble_other" class="img_bubble"
-							src="images/bubble_rightbottom_other.svg" height="50%"
-							alt="Other" /></span>
-					</div>
+					<span class="span_lefttop"> <img
+						id="img_lefttop_bubble_drawing" class="img_bubble"
+						src="images/bubble_lefttop_drawing.svg" height="50%" alt="Drawing"
+						onclick="getSectionSubmenu('div_artwork_section_drawing')" />
+					</span><span class="span_righttop"><img
+						id="img_righttop_bubble_photography" class="img_bubble"
+						src="images/bubble_righttop_photography.svg" height="50%"
+						alt="Photography" /></span><span class="span_leftbottom"><img
+						id="img_leftbottom_bubble_cartoonscomics" class="img_bubble"
+						src="images/bubble_leftbottom_cartoonscomics.svg" height="50%"
+						alt="Cartoons & Comics" /></span><span class="span_rightbottom"><img
+						id="img_rightbottom_bubble_other" class="img_bubble"
+						src="images/bubble_rightbottom_other.svg" height="50%" alt="Other" /></span>
+
 				</div>
 				<div id="div_artwork_section_drawing" class="div_section_submenu"
 					hidden="hidden">
@@ -313,44 +448,47 @@
 								hidden="hidden">-</h2>
 							<h2>DYSTOPIA</h2>
 						</div>
-						<!-- Assigning multiple classes by separating their names with 
-						a space allows transitioning of classed elements. -->
-						<div id="div_dystopia_content" class="div_sub_content collapsed">
-							<span> <img src="drawing/thumbs/pendolum_tn.jpg"
-								alt="Pendolum" title="Pendolum"
-								onclick="getContentFromSubmenu('artwork','pendolum')" /><img
-								src="drawing/thumbs/depression_tn.jpg" alt="Depression"
-								title="Depression"
-								onclick="getContentFromSubmenu('artwork','depression')" /><img
-								src="drawing/thumbs/memento_mori_tn.jpg" alt="Memento Mori"
-								title="Memento Mori"
-								onclick="getContentFromSubmenu('artwork','memento_mori')" /><img
-								src="drawing/thumbs/reflection_of_true_self_tn.jpg"
-								alt="Reflection of True Self" title="Reflection of True Self"
-								onclick="getContentFromSubmenu('artwork','reflection_of_true_self')" /><img
-								src="drawing/thumbs/ascension_to_nowhere_tn.jpg"
-								alt="Ascension to Nowhere" title="Ascension to Nowhere"
-								onclick="getContentFromSubmenu('artwork','ascension_to_nowhere')" /><img
-								src="drawing/thumbs/the_fond_deceit_of_capitalism_tn.jpg"
-								alt="The Fond Deceit of Capitalism"
-								title="The Fond Deceit of Capitalism"
-								onclick="getContentFromSubmenu('artwork','the_fond_deceit_of_capitalism')" /><img
-								src="drawing/thumbs/marionette_tn.jpg" alt="Marionette"
-								title="Marionette"
-								onclick="getContentFromSubmenu('artwork','marionette')" /><img
-								src="drawing/thumbs/menace_of_time_tn.jpg" alt="Menace of Time"
-								title="Menace of Time"
-								onclick="getContentFromSubmenu('artwork','menace_of_time')" /><img
-								src="drawing/thumbs/deluded_by_reality_tn.jpg"
-								alt="Deluded by Reality" title="Deluded by Reality"
-								onclick="getContentFromSubmenu('artwork','deluded_by_reality')" /><img
-								src="drawing/thumbs/farewell_miserable_earth_tn.jpg"
-								alt="Farewell Miserable Earth" title="Farewell Miserable Earth"
-								onclick="getContentFromSubmenu('artwork','farewell_miserable_earth')" /><img
-								src="drawing/thumbs/racing_time_tn.jpg" alt="Racing Time"
-								title="Racing Time"
-								onclick="getContentFromSubmenu('artwork','racing_time')" />
-							</span>
+						<div id="div_dystopia_content" class="fixed_container collapsed">
+							<!-- Assigning multiple classes by separating their names with 
+							a space allows transitioning of classed elements. -->
+							<div class="div_sub_content">
+								<span> <img src="drawing/thumbs/pendolum_tn.jpg"
+									alt="Pendolum" title="Pendolum"
+									onclick="getContentFromSubmenu('artwork','pendolum')" /><img
+									src="drawing/thumbs/depression_tn.jpg" alt="Depression"
+									title="Depression"
+									onclick="getContentFromSubmenu('artwork','depression')" /><img
+									src="drawing/thumbs/memento_mori_tn.jpg" alt="Memento Mori"
+									title="Memento Mori"
+									onclick="getContentFromSubmenu('artwork','memento_mori')" /><img
+									src="drawing/thumbs/reflection_of_true_self_tn.jpg"
+									alt="Reflection of True Self" title="Reflection of True Self"
+									onclick="getContentFromSubmenu('artwork','reflection_of_true_self')" /><img
+									src="drawing/thumbs/ascension_to_nowhere_tn.jpg"
+									alt="Ascension to Nowhere" title="Ascension to Nowhere"
+									onclick="getContentFromSubmenu('artwork','ascension_to_nowhere')" /><img
+									src="drawing/thumbs/the_fond_deceit_of_capitalism_tn.jpg"
+									alt="The Fond Deceit of Capitalism"
+									title="The Fond Deceit of Capitalism"
+									onclick="getContentFromSubmenu('artwork','the_fond_deceit_of_capitalism')" /><img
+									src="drawing/thumbs/marionette_tn.jpg" alt="Marionette"
+									title="Marionette"
+									onclick="getContentFromSubmenu('artwork','marionette')" /><img
+									src="drawing/thumbs/menace_of_time_tn.jpg" alt="Menace of Time"
+									title="Menace of Time"
+									onclick="getContentFromSubmenu('artwork','menace_of_time')" /><img
+									src="drawing/thumbs/deluded_by_reality_tn.jpg"
+									alt="Deluded by Reality" title="Deluded by Reality"
+									onclick="getContentFromSubmenu('artwork','deluded_by_reality')" /><img
+									src="drawing/thumbs/farewell_miserable_earth_tn.jpg"
+									alt="Farewell Miserable Earth" title="Farewell Miserable Earth"
+									onclick="getContentFromSubmenu('artwork','farewell_miserable_earth')" /><img
+									src="drawing/thumbs/racing_time_tn.jpg" alt="Racing Time"
+									title="Racing Time"
+									onclick="getContentFromSubmenu('artwork','racing_time')" />
+								</span>
+							</div>
+							<span class="lowered_content collapsed"></span>
 						</div>
 						<div id="div_portraits_header" class="submenu_header"
 							onclick="toggleCollapseExpand(this)">
@@ -361,9 +499,12 @@
 								hidden="hidden">-</h2>
 							<h2>PORTRAITS</h2>
 						</div>
-						<div id="div_portraits_content" class="div_sub_content collapsed">
-							<span><img src="drawing/thumbs/alexander_tn.jpg" /> <img
-								src="drawing/thumbs/monalisa_tn.jpg" /></span>
+						<div id="div_portraits_content" class="fixed_container collapsed">
+							<div class="div_sub_content">
+								<span><img src="drawing/thumbs/alexander_tn.jpg" /> <img
+									src="drawing/thumbs/monalisa_tn.jpg" /></span>
+							</div>
+							<span class="lowered_content collapsed"></span>
 						</div>
 						<div id="div_illustrations_header" class="submenu_header"
 							onclick="toggleCollapseExpand(this)">
@@ -375,7 +516,10 @@
 							<h2>ILLUSTRATIONS</h2>
 						</div>
 						<div id="div_illustrations_content"
-							class="div_sub_content collapsed">bbbb</div>
+							class="fixed_container collapsed">
+							<div class="div_sub_content">bbbb</div>
+							<span class="lowered_content collapsed"></span>
+						</div>
 						<div id="div_caricatures_header" class="submenu_header"
 							onclick="toggleCollapseExpand(this)">
 							<h2 id="div_caricatures_collapsed_sign" class="sign_collapse">+</h2>
@@ -386,7 +530,11 @@
 							<h2>CARICATURES</h2>
 						</div>
 						<div id="div_caricatures_content"
-							class="div_sub_content collapsed">bbbb</div>
+							class="fixed_container collapsed">
+							<div class="div_sub_content">bbbb</div>
+							<span class="lowered_content collapsed"></span>
+
+						</div>
 						<div id="div_sketches_header" class="submenu_header"
 							onclick="toggleCollapseExpand(this)">
 							<h2 id="div_sketches_collapsed_sign" class="sign_collapse">+</h2>
@@ -396,8 +544,12 @@
 								hidden="hidden">-</h2>
 							<h2>SKETCHES</h2>
 						</div>
-						<div id="div_sketches_content" class="div_sub_content collapsed">
-							cccc<br> <br>sa
+						<div id="div_sketches_content" class="fixed_container collapsed">
+							<div class="div_sub_content">
+								cccc<br> <br>sa
+							</div>
+							<span class="lowered_content collapsed"></span>
+
 						</div>
 					</div>
 				</div>
@@ -421,6 +573,14 @@
 			<div class="div_section_title">
 				<div>
 					<h2>MAIN</h2>
+				</div>
+			</div>
+			<div class="div_section_body">
+				<!-- TODO: Add a horizontal pannable slideshow of images and below it
+					section for the latest stuff and, perhaps, some social, embedded
+					widgets.-->
+				<div class="div_section_menu">
+					<div class="div_anchor">O_O</div>
 				</div>
 			</div>
 		</section>

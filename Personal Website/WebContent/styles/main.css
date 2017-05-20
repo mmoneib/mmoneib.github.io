@@ -55,6 +55,14 @@ section {
 	box-shadow: 2px 2px 15px #000000;
 }
 
+iframe {
+	left: 5%;
+	top: 5%;
+	width: 90%;
+	height: 90%;
+	position: absolute;
+}
+
 ::-webkit-scrollbar {
 	width: 12px;
 }
@@ -337,24 +345,22 @@ section {
 
 .div_section_menu {
 	position: absolute;
-	height: 90%; /*of its absolute parent*/
-	top: 5%;
+	height: 100%;
+	/* top: 5%; */
 	left: 0%;
 	width: 33.333333%;
+	display: flex;
 	overflow: auto;
-	/*display scrollbar whenever necessary*/
 }
 
-.div_section_intro>span {
-	float: left;
+.div_section_menu>span {
 	width: 50%;
 	height: 50%;
 	background-color: transparent;
-	position: relative; /*alows absolute positioning of children
-	 			relative to it, and relative is chosen because it is
-	 			the only non-static mode that allows that without
-				affecting this aprent's position behavior, as long as
-				no new positions are giving to the parent*/
+	position: absolute;
+	/*I am using spans to show parts which maps to visuals
+							rather than contents, and that's why the absolute 
+							positioning is more suitable in that case.*/
 }
 
 .div_section_body {
@@ -364,52 +370,65 @@ section {
 	left: 0%;
 }
 
-.div_section_intro {
-	height: 100%;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 30% 30%;
-}
-
-.div_section_intro>span>.img_bubble {
+.div_section_menu>span>.img_bubble {
 	opacity: 0.2;
 	cursor: pointer;
 	position: absolute;
 	z-index: 10; /*Just in case they overlap with the cartoon character.*/
 }
 
-.div_section_intro>.span_img_character {
+.div_section_menu>.span_img_character {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	display: flex;
-	justify-content: center;
 	align-items: center;
+	justify-content: center;
 }
 
-.div_section_intro>span>.img_bubble:HOVER {
+.div_section_menu>span>.img_bubble:HOVER {
 	opacity: 1;
 }
 
+.span_leftbottom {
+	left: 0%;
+	top: 50%;
+}
+
+.span_lefttop {
+	left: 0%;
+	top: 0%;
+}
+
+.span_righttop {
+	left: 50%;
+	top: 0%;
+}
+
+.span_rightbottom {
+	left: 50%;
+	top: 50%;
+}
+
 #img_righttop_bubble_photography {
-	bottom: 10%;
-	left: 10%;
+	bottom: 5%;
+	left: 5%;
 }
 
 #img_rightbottom_bubble_other {
-	left: 10%;
-	top: 10%;
+	left: 5%;
+	top: 5%;
 }
 
 #img_lefttop_bubble_drawing {
-	right: 10%;
-	bottom: 10%;
+	right: 5%;
+	bottom: 5%;
 }
 
 #img_leftbottom_bubble_cartoonscomics {
-	right: 10%;
-	top: 10%;
+	right: 5%;
+	top: 5%;
 }
 
 #sec_artwork.section_out {
@@ -430,14 +449,6 @@ section {
 
 #sec_about_me.section_out {
 	right: -300%;
-}
-
-iframe {
-	left: 5%;
-	top: 5%;
-	width: 90%;
-	height: 90%;
-	position: absolute;
 }
 
 .div_section_submenu {
@@ -538,18 +549,17 @@ iframe {
 	overflow-y: hidden;
 	margin-bottom: 2%;
 	/* to push below header away from horizontal scroll */
-	transition: height 1s;
+	padding-bottom: 1%;
+	/* to push below body away from horizontal scroll */
 }
 
 .div_sub_content>span {
 	/*The contents slider will grow horizontaly dynamically as elements are added.
-	No need to specify width.*/
-	display: flex;
-}
-
-.collapsed {
-	overflow-x: hidden;
-	height: 0%;
+	No need to specify width. If I had used flex only, it would have worked still,
+	but it wouldn't have grown beyond 100%, even if all images would have been
+	visible. Inline-flex insures that the span would also grow. */
+	display: inline-flex;
+	position: absolute;
 }
 
 .div_sub_content>span>img {
@@ -559,16 +569,14 @@ iframe {
 }
 
 /* Chrome, Safari, Opera */
-@
--webkit-keyframes rotateImage { 50% {
+@-webkit-keyframes rotateImage { 50% {
 	-webkit-transform: rotateY(180deg);
 }
 /* 50% to allow looping without break. */
 }
 
 /* Standard syntax */
-@
-keyframes rotateImage { 50% {
+@keyframes rotateImage { 50% {
 	transform: rotateY(180deg);
 }
 
@@ -578,24 +586,110 @@ keyframes rotateImage { 50% {
 	animation: rotateImage 5s infinite;
 }
 
-/* Calling by class is more specific than type, therefore overrides it. */
+/* Calling by class is more specific than type, thehttp://localhost:8080/Personal_Website/refore overrides it. */
 .sign_collapse {
 	position: absolute;
 	left: 1%;
 }
 
-.div_horizontal_column {
-	height:95%;
-	width: 39%;
-	color: green;
+#div_about_me_info {
+	position: relative;
+	padding-top: 3%;
 	padding-left: 5%;
-	padding-right: 5%;
-	margin-top: 3%;
-	display:inline-block;'
+	padding-right: 4%;
+	/* Less 1 % because 1 is already taken by the padding
+    					to separate the text from the scroll bar.*/
+	width: 55%;
+	background-color: #87CEFA;
+	border-radius: 10px;
+	overflow: hidden;
 }
 
-.div_container_centered {
+#div_about_me_info>.div_background {
+	z-index: 100;
+	background-color: #87CEFA;
+	overflow: auto;
+	padding-right: 1%;
+	background-image: url(../drawing/dystopia/marionette.jpg);
+	height: 94%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	/* background-blend-mode: normal; */
+	/* background-origin: border-box; */
+	background-position: 50%;
+}
+
+#div_about_me_image {
+	position: relative;
+	width: 45%;
+	height: 100%;
+}
+
+#div_about_me_image>img {
+	height: 98%; /*Only height is specified to maintain aspect ratio.*/
+}
+
+.lowered_content {
+	box-shadow: inset 104px 104px 15px -100px rgba(0, 0, 0, 0.7), inset
+		-104px -104px 15px -100px rgba(0, 0, 0, 0.7);
+	background-color: transparent;
+}
+
+#div_about_info_image {
+	height: 200px;
+}
+
+#div_about_info_caption {
+	overflow: auto;
+	overflow-wrap: break-word;
+	background-color: #87CEFA;
+	color: FireBrick;
+	font-variant: normal;
+}
+
+.div_anchor {
+	box-sizing: border-box; /*To exclude padding and margins from calc.*/
+	position: relative;
+	width: 100%;
+	height: 96%;
+	padding-left: 5%;
 	display: flex;
-	align-items: center;
-	justify-content:center;
+	padding-top: 3%;
+}
+
+.fixed_container {
+	transform: translateZ(0);
+	/*Any number would do. This sets the element as
+					the new reference for fixed sizing instead of the window.*/
+	transition: height 1s; overflow : hidden; height : 176px;
+	/*Dynamic sizing without giving a height depends	on the size of 
+		the children, which causes transitions to jump as 	they need an original size 
+		as a reference. Also, since thumbnails 	and the horizontal 	scrollbar have 
+		specific sizes, this fixed size should suffice.*/
+	margin-bottom: 2%;
+	overflow: hidden;
+	height: 176px;
+}
+
+.fixed_container>span {
+	position: fixed; /*With respect to the fixed container.*/
+	width: 100%; /*TODO: Should be specific for a class.*/
+	height: 150px;
+	/*TODO: Should be specific for a class. This is the height of
+					the thumb nails.*/
+	top: 0px; /*TODO: Should be specific for a class.*/
+	left: 0px; /*TODO: Should be specific for a class.*/
+	pointer-events: none; /*Prevents the blockage of mouse events for any
+							of the elements that lie beneath it. It is used
+							here because the span is only used as a mask to
+							apply shadows.*/
+}
+
+/*When 2 or more classes are assigned to an element, the one towards
+	the end of the CSS file overrides if there are conflicts in the attributes.
+	Here, this class is used for transition, therefore conflicts are desired.
+	Hence, it is put near the end of the file to override the height of any of
+	the preceding classes.*/
+.collapsed {
+	height: 0px;
 }
