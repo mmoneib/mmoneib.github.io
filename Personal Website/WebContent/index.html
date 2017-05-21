@@ -9,6 +9,19 @@
 			"favorite_links", "about_me" ];
 	var currentSection = 0;
 
+	function atry(element) {
+		//document.getElementById('div_lower_background').style.height = "50%";
+		
+		if(-element.scrollTop+document.getElementById("div_about_info_caption_1").offsetTop>=0)
+		document.getElementById('div_lower_background').style.top = -element.scrollTop+document.getElementById("div_about_info_caption_1").offsetTop+"px";
+		console
+				.log(document.getElementById("div_about_info_image_1").offsetTop+document.getElementById("div_about_info_image_1").offsetHeight < element.scrollTop);
+		console.log("Top: "+document.getElementById("div_about_info_image_1").offsetTop);
+		console.log("Height: "+document.getElementById("div_about_info_image_1").offsetHeight);
+
+
+	}
+
 	/*Not used anymore.*/
 	function initialize() {
 		var submenus = [ "dystopia", "portraits", "illustrations",
@@ -238,15 +251,19 @@
 				<div class="div_section_menu">
 					<div class="div_anchor">
 						<div id="div_about_me_info">
-							<div class="div_background">
-								<div id="div_about_info_caption" class="">
+							<div id="div_upper_background">
+								<img src="/drawing/dystopia/depression.jpg" />
+							</div>
+							<div id="div_lower_background"></div>
+							<div class="div_background" onscroll="atry(this)">
+								<div id="div_about_info_caption_0" class="div_about_info_caption">
 									<p>Welcome to my website.</p>
 									<p>My name is, obviously, Muhammad Moneib, and I am a
 										software engineer by profession as well as an amateur artist,
 										writer, and traveller -- or that's what I'd rather believe.</p>
 								</div>
-								<div id="div_about_info_image" class="lowered_content"></div>
-								<div id="div_about_info_caption" class="">
+								<div id="div_about_info_image_1" class="div_about_info_image lowered_content"></div>
+								<div id="div_about_info_caption_1" class="div_about_info_caption">
 									<p>I was born in Cairo, Egypt back in 1984, which happens
 										to be the title of my favorite book so far. There's so much to
 										learn about the current world from Orwell's novel, especially
@@ -255,16 +272,16 @@
 										the best, which will protect you from disappointment and
 										unwelcomed surprises, hence the defensive part.</p>
 								</div>
-								<div id="div_about_info_image" class="lowered_content"></div>
-								<div id="div_about_info_caption" class="">
+								<div id="div_about_info_image_2" class="div_about_info_image lowered_content"></div>
+								<div id="div_about_info_caption_2" class="div_about_info_caption">
 									<p>This I have learned during my thirty-something years on
 										this planet the hard way, through trial and error, which is
 										the same mechanism I have employed to get the hang of all my
 										self-taught skill, including photgraphy, writing, and drawing,
 										among others.</p>
 								</div>
-								<div id="div_about_info_image" class="lowered_content"></div>
-								<div id="div_about_info_caption" class="">
+								<div id="div_about_info_image_3" class="div_about_info_image lowered_content"></div>
+								<div id="div_about_info_caption_3" class="div_about_info_caption">
 									<p>For instance, I have always been fascinated by people
 										who seemed to be so talented in producing the likeness of
 										people on paper, and despite several trials in my late teens,
@@ -274,16 +291,16 @@
 										2002, but it wasn't until 2007 when I focused on drawing
 										regularly, something which I have been doing ever since.</p>
 								</div>
-								<div id="div_about_info_image" class="lowered_content"></div>
-								<div id="div_about_info_caption" class="">
+								<div id="div_about_info_image_4" class="div_about_info_image lowered_content"></div>
+								<div id="div_about_info_caption_4" class="div_about_info_caption">
 									<p>For an escavator of my old skertches from that date, he
 										would find drawings that could be done by a child, let alone a
 										23 years old, that if he compares them to my current drawings,
 										he would conclude decisively that practice doesn't make
 										perfect, but it, most certainly, makes better.</p>
 								</div>
-								<div id="div_about_info_image" class="lowered_content"></div>
-								<div id="div_about_info_caption" class="">
+								<div id="div_about_info_image_5" class="div_about_info_image lowered_content"></div>
+								<div id="div_about_info_caption_5" class="div_about_info_caption">
 									<p>In the world of arts, I have found something much better
 										than immitating reality in the form of people's likeness; I
 										have found a very effective outlet for my most nagging
@@ -293,8 +310,8 @@
 										document and communicate the details of my abstract ideas for
 										my own consumption before anyone else's.</p>
 								</div>
-								<div id="div_about_info_image" class="lowered_content"></div>
-								<div id="div_about_info_caption" class="">
+								<div id="div_about_info_image_6" class="div_about_info_image lowered_content"></div>
+								<div id="div_about_info_caption_6" class="div_about_info_caption">
 									<p>I have had a handful of articles and essays published
 										online, and a poem publsihed in an online literary magazine --
 										yes, sometimes I write poems and I am not ashamed of it -- but
@@ -303,8 +320,8 @@
 										or a book I have read, or an idea that just sparked inside my
 										brain, not to mention a code that does something useful.</p>
 								</div>
-								<div id="div_about_info_image" class="lowered_content"></div>
-								<div id="div_about_info_caption" class="">
+								<div id="div_about_info_image_7" class="div_about_info_image lowered_content"></div>
+								<div id="div_about_info_caption_7" class="div_about_info_caption">
 									<p>Sitting in front of a computer for a living can be a
 										very boring thing, unless you put it for a good use.
 										Technoligy, per se, is becoming more of a dillemma each day,
@@ -317,8 +334,8 @@
 										literally constructing our own destruction, unless something
 										is done quickly to change the status-quo.</p>
 								</div>
-								<div id="div_about_info_image" class="lowered_content"></div>
-								<div id="div_about_info_caption" class="">
+								<div id="div_about_info_image_8" class="div_about_info_image lowered_content"></div>
+								<div id="div_about_info_caption_8" class="div_about_info_caption">
 									<p>That's how I feel connected with earth. Being a tech guy
 										who loves nature and recognizes the dangers of technology on
 										it, I too feel the irony. Yet it doesn't have to be that way.
@@ -328,8 +345,8 @@
 										technology. Humans would do much better if they too embrace
 										the defensive pessimist's attitude.</p>
 								</div>
-								<div id="div_about_info_image" class="lowered_content"></div>
-								<div id="div_about_info_caption" class="">
+								<div id="div_about_info_image_9" class="div_about_info_image lowered_content"></div>
+								<div id="div_about_info_caption_9" class="div_about_info_caption">
 									<p>No matter where I go, I find the same patterns, albeit
 										in different incarnations. I have travelled solely to much of
 										Europe and some of the middle-east, and, despite the different
@@ -344,20 +361,20 @@
 										the green and arid lands, and between the liberal and
 										conservative mindsets.</p>
 								</div>
-								<div id="div_about_info_image" class="lowered_content"></div>
-								<div id="div_about_info_caption" class="">
+								<div id="div_about_info_image_10" class="div_about_info_image lowered_content"></div>
+								<div id="div_about_info_caption_10" class="div_about_info_caption">
 									<p>Hence, the challenges for unification and cooperation
 										are immense, whether at the global or personal levels. It is
 										my desire to bring this reality into technology and into art
 										as much as I can. Be it through drawing, photography, writing,
 										coding...etc., what is important is to work in a certain
-										direction with whatever tools one has got. One of these tools
+										direction with w_1hatever tools one has got. One of these tools
 										is this website, which I am building for myself in the first
 										place to enhance my front-end development skills in addition
 										to collecting and showcasing my different works in a single
 										place. I hope it would be beneficial to some others as well.</p>
 								</div>
-								<div id="div_about_info_caption" class="">
+								<div id="div_about_info_caption_11" class="div_about_info_caption">
 									<p>If you have made it that far through reading every word,
 										then thanks for your time. I believe my freewriting exercise
 										for today is over.</p>
