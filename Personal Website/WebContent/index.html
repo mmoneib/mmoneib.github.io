@@ -10,16 +10,44 @@
 	var currentSection = 0;
 
 	function atry(element) {
-		//document.getElementById('div_lower_background').style.height = "50%";
+		var caption =document.getElementById("div_about_info_caption_1");
+		var background=document.getElementById('div_background_2');
 		
-		if(-element.scrollTop+document.getElementById("div_about_info_caption_1").offsetTop>=0)
-		document.getElementById('div_lower_background').style.top = -element.scrollTop+document.getElementById("div_about_info_caption_1").offsetTop+"px";
-		console
-				.log(document.getElementById("div_about_info_image_1").offsetTop+document.getElementById("div_about_info_image_1").offsetHeight < element.scrollTop);
-		console.log("Top: "+document.getElementById("div_about_info_image_1").offsetTop);
-		console.log("Height: "+document.getElementById("div_about_info_image_1").offsetHeight);
+		if(-element.scrollTop+caption.offsetTop>=0)
+			background.style.top = -element.scrollTop+caption.offsetTop+"px";
+		else{
+			background.style.top="0px";
+		}
+		
+		
+		caption =document.getElementById("div_about_info_caption_2");
+		background=document.getElementById('div_background_3');
+		
+		if(-element.scrollTop+caption.offsetTop>=0)
+			background.style.top = -element.scrollTop+caption.offsetTop+"px";
+		else{
+			background.style.top="0px";
+		}
+		
+		
+		caption =document.getElementById("div_about_info_caption_3");
+		background=document.getElementById('div_background_4');
+		
+		if(-element.scrollTop+caption.offsetTop>=0)
+			background.style.top = -element.scrollTop+caption.offsetTop+"px";
+		else{
+			background.style.top="0px";
+		}
+		
 
-
+		caption =document.getElementById("div_about_info_caption_4");
+		background=document.getElementById('div_background_5');
+		
+		if(-element.scrollTop+caption.offsetTop>=0)
+			background.style.top = -element.scrollTop+caption.offsetTop+"px";
+		else{
+			background.style.top="0px";
+		}
 	}
 
 	/*Not used anymore.*/
@@ -251,10 +279,36 @@
 				<div class="div_section_menu">
 					<div class="div_anchor">
 						<div id="div_about_me_info">
-							<div id="div_upper_background">
+							<div id="div_background_1" class="div_low_background">
 								<img src="/drawing/dystopia/depression.jpg" />
 							</div>
-							<div id="div_lower_background"></div>
+							<div id="div_background_2" class="div_low_background">
+								<img src="/drawing/dystopia/depression.jpg" />
+							</div>
+							<div id="div_background_3" class="div_low_background">
+								<img src="/drawing/dystopia/depression.jpg" />
+							</div>
+							<div id="div_background_4" class="div_low_background">
+								<img src="/drawing/dystopia/depression.jpg" />
+							</div>
+							<div id="div_background_5" class="div_low_background">
+								<img src="/drawing/dystopia/depression.jpg" />
+							</div>
+							<div id="div_background_6" class="div_low_background">
+								<img src="/drawing/dystopia/depression.jpg" />
+							</div>
+							<div id="div_background_7" class="div_low_background">
+								<img src="/drawing/dystopia/depression.jpg" />
+							</div>
+							<div id="div_background_8" class="div_low_background">
+								<img src="/drawing/dystopia/depression.jpg" />
+							</div>
+							<div id="div_background_9" class="div_low_background">
+								<img src="/drawing/dystopia/depression.jpg" />
+							</div>
+							<div id="div_background_10" class="div_low_background">
+								<img src="/drawing/dystopia/depression.jpg" />
+							</div>
 							<div class="div_background" onscroll="atry(this)">
 								<div id="div_about_info_caption_0" class="div_about_info_caption">
 									<p>Welcome to my website.</p>
