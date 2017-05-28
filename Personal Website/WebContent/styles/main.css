@@ -592,14 +592,23 @@ iframe {
 	left: 1%;
 }
 
+#div_about_me{
+	display: flex;
+    overflow: hidden;
+    padding-left: 4%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-right: 4%;
+    background-color: #87CEFA;
+}
+
 #div_about_me_info {
 	position: relative;
-	padding-top: 3%;
-	padding-left: 5%;
-	padding-right: 4%;
+/* 	padding-top: 3%; */
+/* 	padding-left: 5%; */
+/* 	padding-right: 4%; */
 	/* Less 1 % because 1 is already taken by the padding
     					to separate the text from the scroll bar.*/
-	width: 55%;
 	background-color: #87CEFA;
 	border-radius: 10px;
 	overflow: hidden;
@@ -611,13 +620,17 @@ iframe {
 	/*background-color: #87CEFA;*/
 	overflow: auto;
 	padding-right: 1%;
-	/*background-image: url(../drawing/dystopia/marionette.jpg);*/
-	height: 94%;
-	background-repeat: no-repeat;
-	background-size: contain;
-	/* background-blend-mode: normal; */
-	/* background-origin: border-box; */
-	background-position: 50%;
+    PADDING-LEFT: 1%;
+	height: 100%;
+}
+
+#div_about_me_info>.div_high_background{
+    width: 90%;
+    margin-left: 4%;
+    overflow: hidden;
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
 }
 
 #div_about_me_image {
@@ -637,7 +650,8 @@ iframe {
 }
 
 .div_about_info_image {
-	height: 50%;
+	height: 100%;
+    width: 90%;
 }
 
 .div_about_info_caption {
@@ -699,60 +713,79 @@ iframe {
 	position:absolute;
 	width:100%;
 	height:100%;
-	padding:10%;
+/* 	padding:10%; */
+	display:flex;
+	justify-content: center;
 	box-sizing:border-box;
 	left:0px;
 	top:-1000px;
 	pointer-events:none;
 }
 
+.div_low_background>img{
+	height:100%;
+}
+
 #div_background_1{
-	background-color:yellow;
+/* 	background-color:yellow; */
 	z-index:-10;
 	top:0%;
 }
 
 #div_background_2{
-	background-color:blue;
+/* 	background-color:blue; */
 	z-index:-9;
 }
 
 #div_background_3{
-	background-color:green;
+/* 	background-color:green; */
 	z-index:-8;
 }
 
 #div_background_4{
-	background-color:purple;
+/* 	background-color:purple; */
 	z-index:-7;
 }
 
 #div_background_5{
-	background-color:orange;
+/* 	background-color:orange; */
 	z-index:-6;
 }
 
 #div_background_6{
-	background-color:brown;
+/* 	background-color:brown; */
 	z-index:-5;
 }
 
 #div_background_7{
-	background-color:gray;
+/* 	background-color:gray; */
 	z-index:-4;
 }
 
 #div_background_8{
-	background-color:magenta;
+/* 	background-color:magenta; */
 	z-index:-3;
 }
 
 #div_background_9{
-	background-color:black;
+/* 	background-color:black; */
 	z-index:-2;
 }
 
 #div_background_10{
-	background-color:white;
+/* 	background-color:white; */
 	z-index:-1;
+}
+
+.span_lowered_content_side{
+	height: 100%;
+    width: 5%;
+    background-color: #87CEFA;'
+}
+
+.div_sliding_background_content{
+	width: 100%;
+    position: static;
+    display: flex;
+    height: 80%;
 }
