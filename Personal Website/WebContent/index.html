@@ -284,6 +284,55 @@
 		xhr.open("GET", "./objects/" + objectTitle + ".json", true);
 		xhr.send();
 	}
+
+	var initial_aphorisms_left=null;
+	var initial_aphorisms_top=null;
+	
+	function moveBackground(element) {
+		//If condition to reduce the processing time.
+		if(event.clientX%2==0){
+			return;
+		}
+		var backElement = element.firstElementChild;
+		
+		
+		//TODO: Improve by eleminating the need for computed styles.
+		if(initial_aphorisms_left==null){
+			initial_aphorisms_left=window.getComputedStyle(backElement).getPropertyValue(
+			"left").slice(0,-2);
+		}
+		if(initial_aphorisms_top==null){
+			initial_aphorisms_top=window.getComputedStyle(backElement).getPropertyValue(
+			"top").slice(0,-2);
+		}
+		
+		var elementHorCenter=(
+				Number(window.getComputedStyle(element).getPropertyValue("width").slice(0,-2))/2+
+				element.getBoundingClientRect().left);
+		var elementVerCenter=(
+				Number(window.getComputedStyle(element).getPropertyValue("height").slice(0,-2))/2+
+				element.getBoundingClientRect().top);
+		
+		var numLeft = Number(window.getComputedStyle(backElement).getPropertyValue(
+				"left").slice(0, -2));
+		var numTop = Number(window.getComputedStyle(backElement).getPropertyValue(
+				"top").slice(0, -2));
+
+		
+		if (numLeft < 0&&event.clientX>elementHorCenter) {
+			backElement.style.left = ++numLeft + "px";
+		}
+		if (numLeft > initial_aphorisms_left&&event.clientX<elementHorCenter) {
+			backElement.style.left = --numLeft + "px";
+		}
+		
+		if (numTop < 0&&event.clientY>elementVerCenter) {
+			backElement.style.top = ++numTop + "px";
+		}
+		if (numTop > initial_aphorisms_top&&event.clientY<elementVerCenter) {
+			backElement.style.top = --numTop + "px";
+		}
+	}
 </script>
 </head>
 <header>
@@ -515,6 +564,39 @@
 											our common dangers, and that we should be conservationists
 											rather than conservatives in a way that can adjourn the much
 											needed liberal mindset with the ornaments of the common good.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 										
 									</div>
@@ -761,7 +843,42 @@
 					section for the latest stuff and, perhaps, some social, embedded
 					widgets.-->
 				<div class="div_section_menu">
-					<div class="div_anchor">O_O</div>
+					<div class="div_anchor2">
+						<div id="div_aphorimsm_banner" onmousemove="moveBackground(this)">
+							<div id="div_aphorisms_background"></div>
+							<div id="div_aphorisms_foreground" class="div_container_flex">
+								<div id="div_aphorism">
+									<h2>Walking by itself can be liberating, yet walking
+										aimlessly every now and then is the only sure sign of freedom.</h2>
+								</div>
+							</div>
+						</div>
+						<div id="div_main_branch">
+							<div id="div_siteupdate_header" class="submenu_header">
+								Site Updates</div>
+							<div class="div_main_branch_anchor">
+								<div class="div_main_content">
+								efwergwgopkwgw<br>
+								gwgw<br>
+								gwegw<br>
+								gwg<br>
+								ew<br>
+								gwgwerhw3rhw<br>
+								werhhe<br>
+								erhe<br>
+								h<br>
+								erh<br>
+								erherhehe<br>
+								ehgjeoir<br>
+								rgegeopjrgj<br>h<br>
+								erh<br>
+								erherhehe<br>
+								ehgjeoir<br>
+								rgegeopjrgj<br>
+								weg				<br>				</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
