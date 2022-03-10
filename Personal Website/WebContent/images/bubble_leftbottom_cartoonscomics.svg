@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -13,8 +11,8 @@
    height="288.72818"
    id="svg3236"
    version="1.1"
-   inkscape:version="0.48.5 r10040"
-   sodipodi:docname="bubble_lefttop_drawing.svg">
+   inkscape:version="1.0beta2 (unknown)"
+   sodipodi:docname="bubble_leftbottom_cartoonscomics.svg">
   <defs
      id="defs3238" />
   <sodipodi:namedview
@@ -34,11 +32,12 @@
      fit-margin-left="-3.7"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="1280"
-     inkscape:window-height="958"
+     inkscape:window-width="1920"
+     inkscape:window-height="983"
      inkscape:window-x="0"
      inkscape:window-y="27"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     inkscape:document-rotation="0" />
   <metadata
      id="metadata3241">
     <rdf:RDF>
@@ -47,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -64,22 +63,21 @@
        sodipodi:nodetypes="ssscssscsssscssscssscccscsssccccsssssssccsssscsscsscssssssssssssssscsssssccsssssssssccssscsccsssssscscscsscssccssssssscc" />
     <text
        xml:space="preserve"
-       style="font-size:60.54963303px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:77.99999714%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:MMoneib-Yoken2-CalligraphyPen;-inkscape-font-specification:MMoneib-Yoken2-CalligraphyPen Medium"
-       x="596.87622"
-       y="6.3595004"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:10.9294px;line-height:0%;font-family:MMoneib-Yoken2-CalligraphyPen;-inkscape-font-specification:'MMoneib-Yoken2-CalligraphyPen Medium';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.910781"
+       x="598.42188"
+       y="14.705181"
        id="text3389"
-       sodipodi:linespacing="77.999997%"
-       transform="matrix(0.90731948,0.42044187,-0.42044187,0.90731948,0,0)"><tspan
+       transform="rotate(24.862488)"><tspan
          sodipodi:role="line"
          id="tspan3391"
-         x="596.87622"
-         y="6.3595004"
+         x="598.42188"
+         y="14.705181"
          dy="0 0"
-         style="line-height:77.99999714%">Cartoons </tspan><tspan
+         style="font-size:55.1474px;line-height:78%;stroke-width:0.910781">Cartoons </tspan><tspan
          sodipodi:role="line"
-         x="596.87622"
-         y="53.588215"
+         x="598.42188"
+         y="57.72015"
          id="tspan3439"
-         style="line-height:77.99999714%">&amp; Comics</tspan></text>
+         style="font-size:55.1474px;line-height:78%;stroke-width:0.910781">&amp; Comics</tspan></text>
   </g>
 </svg>

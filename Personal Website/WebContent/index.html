@@ -4,336 +4,7 @@
 <meta charset="UTF-8">
 <title>Muhammad Moneib's Website</title>
 <link rel="stylesheet" type="text/css" href="styles/main.css?12">
-<script type="text/javascript">
-	var sections = [ "main", "artwork", "software_projects", "writing",
-			"favorite_links", "about_me" ];
-	var currentSection = 0;
-
-	function atry(element) {
-		var caption = document.getElementById("div_about_info_caption_1");
-		var background = document.getElementById('div_background_2');
-
-		if (-element.scrollTop + caption.offsetTop >= 0)
-			background.style.top = -element.scrollTop + caption.offsetTop
-					+ "px";
-		else {
-			background.style.top = "0px";
-		}
-
-		caption = document.getElementById("div_about_info_caption_2");
-		background = document.getElementById('div_background_3');
-
-		if (-element.scrollTop + caption.offsetTop >= 0)
-			background.style.top = -element.scrollTop + caption.offsetTop
-					+ "px";
-		else {
-			background.style.top = "0px";
-		}
-
-		caption = document.getElementById("div_about_info_caption_3");
-		background = document.getElementById('div_background_4');
-
-		if (-element.scrollTop + caption.offsetTop >= 0)
-			background.style.top = -element.scrollTop + caption.offsetTop
-					+ "px";
-		else {
-			background.style.top = "0px";
-		}
-
-		caption = document.getElementById("div_about_info_caption_4");
-		background = document.getElementById('div_background_5');
-
-		if (-element.scrollTop + caption.offsetTop >= 0)
-			background.style.top = -element.scrollTop + caption.offsetTop
-					+ "px";
-		else {
-			background.style.top = "0px";
-		}
-
-		caption = document.getElementById("div_about_info_caption_5");
-		background = document.getElementById('div_background_6');
-
-		if (-element.scrollTop + caption.offsetTop >= 0)
-			background.style.top = -element.scrollTop + caption.offsetTop
-					+ "px";
-		else {
-			background.style.top = "0px";
-		}
-
-		caption = document.getElementById("div_about_info_caption_6");
-		background = document.getElementById('div_background_7');
-
-		if (-element.scrollTop + caption.offsetTop >= 0)
-			background.style.top = -element.scrollTop + caption.offsetTop
-					+ "px";
-		else {
-			background.style.top = "0px";
-		}
-
-		caption = document.getElementById("div_about_info_caption_7");
-		background = document.getElementById('div_background_8');
-
-		if (-element.scrollTop + caption.offsetTop >= 0)
-			background.style.top = -element.scrollTop + caption.offsetTop
-					+ "px";
-		else {
-			background.style.top = "0px";
-		}
-
-		caption = document.getElementById("div_about_info_caption_8");
-		background = document.getElementById('div_background_9');
-
-		if (-element.scrollTop + caption.offsetTop >= 0)
-			background.style.top = -element.scrollTop + caption.offsetTop
-					+ "px";
-		else {
-			background.style.top = "0px";
-		}
-
-		caption = document.getElementById("div_about_info_caption_9");
-		background = document.getElementById('div_background_10');
-
-		if (-element.scrollTop + caption.offsetTop >= 0)
-			background.style.top = -element.scrollTop + caption.offsetTop
-					+ "px";
-		else {
-			background.style.top = "0px";
-		}
-	}
-
-	/*Not used anymore.*/
-	function initialize() {
-		var submenus = [ "dystopia", "portraits", "illustrations",
-				"caricatures", "sketches" ];
-		for (var i = 0; i < submenus.length; i++) {
-			document
-					.getElementById("div_" + submenus[i] + "_content")
-					.addEventListener(
-							'transitionend',
-							function(event) {
-								/* Passing variable from outside the anonymous function
-								will only have its last value accessible, because the 
-								variable's scope is larger than that of the function, 
-								and the function is called later, when the variable is 
-								rested on its last value in the last iteration 
-								of the loop. 
-								
-								Therefore, the Event object is used instead
-								to access the calling element (currentTarget). The 
-								currentTarget property refers to the originating element 
-								of the event. The target property (which is not used here)
-								refer to any acting element along the bubbling or
-								capturing paths.*/
-								if (document
-										.getElementById(event.currentTarget.id).className
-										.indexOf("collapsed") < 0) {
-									document
-											.getElementById(event.currentTarget.id).style.overflowX = "scroll";
-								}
-							}, false);
-		}
-	}
-
-	function navigateSection(event) {
-		if (event.which == 37) {
-			deactivateSectionToLeft(sections[currentSection]);
-		} else if (event.which == 39) {
-			deactivateSectionToRight(sections[currentSection])
-		} else {
-			return;
-		}
-		activateSection(sections[currentSection]);
-	}
-
-	function getRightSection() {
-		if (currentSection > 0) {
-			moveSection(sections[currentSection], 95 - 1);
-			currentSection -= 1;
-		}
-	}
-
-	function getLeftSection() {
-		if (currentSection < 5) {
-			currentSection += 1;
-			moveSection(sections[currentSection], 0);
-		}
-	}
-
-	function moveSection(sectionName, negativeOffset) {
-		document.getElementById("sec_" + sectionName).style.right = sections.length
-				- currentSection - 1 - negativeOffset + "%";
-	}
-
-	function activateSection(sectionName) {
-		document.getElementById("sec_" + sectionName).className = "section_active";
-	}
-
-	function deactivateSectionToLeft(sectionName) {
-		document.getElementById("sec_" + sectionName).className = "section_inactive_left";
-		if (currentSection < 5) {
-			currentSection += 1;
-		}
-	}
-
-	function deactivateSectionToRight(sectionName) {
-		document.getElementById("sec_" + sectionName).className = "section_inactive_right";
-		if (currentSection > 0) {
-			currentSection -= 1;
-		}
-	}
-
-	function navigateToClick(section, position) {
-		if (section.className == "section_inactive_left") {
-			for (var i = currentSection; i > position; i--) {
-				deactivateSectionToRight(sections[i]);
-			}
-		} else if (section.className == "section_inactive_right") {
-			for (var i = currentSection; i < position; i++) {
-				deactivateSectionToLeft(sections[i]);
-			}
-		} else {
-			return; //to avoid overriding children clicks
-		}
-		activateSection(sections[position]);
-	}
-
-	function colorLetter(letter) {
-		if (letter.style.color != "orange") {
-			letter.style.color = "orange";
-		} else {
-			letter.style.color = null;//reverts to the CSS
-		}
-	}
-
-	function getSectionSubmenu(elementName) {
-		divSecContent = document.getElementById(elementName);
-		divSecContent.removeAttribute("hidden");
-		panSectionToSubmenu(sections[currentSection]);
-		moveInactiveRightSectionsOut();
-	}
-
-	function moveInactiveRightSectionsOut() {
-		for (i = currentSection + 1; i < sections.length; i++) {
-			document.getElementById("sec_" + sections[i]).className = "section_out";
-		}
-	}
-
-	function moveInactiveRightSectionsIn() {
-		for (i = currentSection + 1; i < sections.length; i++) {
-			document.getElementById("sec_" + sections[i]).className = "section_inactive_right";
-		}
-	}
-
-	function panSectionToSubmenu(sectionName) {
-		document.getElementById("sec_" + sectionName).className = "section_panned_submenu";
-	}
-
-	function getSectionMenu() {
-		unpanSection(sections[currentSection]);
-	}
-
-	function unpanSection(sectionName) {
-		document.getElementById("sec_" + sectionName).className = "section_active";
-		moveInactiveRightSectionsIn();
-	}
-
-	function toggleCollapseExpand(headerDivElementID) {
-		idPrefix = headerDivElementID.id.replace(/_header/, "");
-
-		submenuDivElement = document.getElementById(idPrefix + "_content");
-		collapsedSignElement = document.getElementById(idPrefix
-				+ "_collapsed_sign");
-		expandedSignElement = document.getElementById(idPrefix
-				+ "_expanded_sign");
-
-		if (submenuDivElement.className.indexOf("collapsed", 0) > 0) {
-			submenuDivElement.className = submenuDivElement.className.replace(
-					/ collapsed/, "");
-
-			expandedSignElement.removeAttribute("hidden");
-			collapsedSignElement.setAttribute("hidden", "hidden");
-
-		} else {
-			submenuDivElement.style.overflowX = "hidden";
-			submenuDivElement.className += " collapsed";
-
-			collapsedSignElement.removeAttribute("hidden");
-			expandedSignElement.setAttribute("hidden", "hidden")
-		}
-	}
-
-	function getContentFromSubmenu(sectionName, objectTitle) {
-		document.getElementById("sec_" + sectionName).className = "section_panned_content";
-
-		//Using AJAX.
-		var xhr = new XMLHttpRequest();
-
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState == 4) {
-				/*xhr.responseXML return null for anything but XML or HTML. 
-				That's why I am using xhr.response to return JSON.*/
-				document.getElementById("img_artwork").src = JSON
-						.parse(xhr.response).image;
-				document.getElementById("img_artwork").alt = JSON
-						.parse(xhr.response).title;
-				document.getElementById("lbl_artwork_caption").innerText = JSON
-						.parse(xhr.response).title;
-			}
-		}
-
-		xhr.open("GET", "./objects/" + objectTitle + ".json", true);
-		xhr.send();
-	}
-
-	var initial_aphorisms_left=null;
-	var initial_aphorisms_top=null;
-	
-	function moveBackground(element) {
-		//If condition to reduce the processing time.
-		if(event.clientX%2==0){
-			return;
-		}
-		var backElement = element.firstElementChild;
-		
-		
-		//TODO: Improve by eleminating the need for computed styles.
-		if(initial_aphorisms_left==null){
-			initial_aphorisms_left=window.getComputedStyle(backElement).getPropertyValue(
-			"left").slice(0,-2);
-		}
-		if(initial_aphorisms_top==null){
-			initial_aphorisms_top=window.getComputedStyle(backElement).getPropertyValue(
-			"top").slice(0,-2);
-		}
-		
-		var elementHorCenter=(
-				Number(window.getComputedStyle(element).getPropertyValue("width").slice(0,-2))/2+
-				element.getBoundingClientRect().left);
-		var elementVerCenter=(
-				Number(window.getComputedStyle(element).getPropertyValue("height").slice(0,-2))/2+
-				element.getBoundingClientRect().top);
-		
-		var numLeft = Number(window.getComputedStyle(backElement).getPropertyValue(
-				"left").slice(0, -2));
-		var numTop = Number(window.getComputedStyle(backElement).getPropertyValue(
-				"top").slice(0, -2));
-
-		
-		if (numLeft < 0&&event.clientX>elementHorCenter) {
-			backElement.style.left = ++numLeft + "px";
-		}
-		if (numLeft > initial_aphorisms_left&&event.clientX<elementHorCenter) {
-			backElement.style.left = --numLeft + "px";
-		}
-		
-		if (numTop < 0&&event.clientY>elementVerCenter) {
-			backElement.style.top = ++numTop + "px";
-		}
-		if (numTop > initial_aphorisms_top&&event.clientY<elementVerCenter) {
-			backElement.style.top = --numTop + "px";
-		}
-	}
-</script>
+<script type="text/javascript" src="scripts/index.js"></script>
 </head>
 <header>
 	<!-- TODO: Add a menu button to spread the sections horizontaly across the screen
@@ -386,7 +57,7 @@
 								<!-- The div_high_background is needed as a hook for the background image. -->
 								<div class="div_high_background">
 									<div id="div_background_1" class="div_low_background">
-										<img src="./images/through_stained_glass.jpg" />
+										<img src="./images/ghostly.jpg" />
 									</div>
 									<div id="div_background_2" class="div_low_background">
 										<img src="./images/heliopolis_at_midnight.jpg" />
@@ -395,34 +66,32 @@
 										<img src="./images/charlie_brown_with_me.jpg" />
 									</div>
 									<div id="div_background_4" class="div_low_background">
-										<img src="./images/doodling_myself.jpg" />
-									</div>
-									<div id="div_background_5" class="div_low_background">
-										<img src="./images/concept_vs_style.jpg" />
-									</div>
-									<div id="div_background_6" class="div_low_background">
-										<img src="./images/bird_dream_about_freedom.jpg" />
-									</div>
-									<div id="div_background_7" class="div_low_background">
-										<img src="./images/me_acrobat.jpg" />
-									</div>
-									<div id="div_background_8" class="div_low_background">
 										<img src="./images/rotating_bee.jpg" />
 									</div>
+									<div id="div_background_5" class="div_low_background">
+										<img src="./images/construction_destruction.jpg" />
+									</div>
+									<div id="div_background_6" class="div_low_background">
+										<img src="./images/bike_of_louvre.jpg" />
+									</div>
+									<div id="div_background_7" class="div_low_background">
+										<img src="./images/self_reflection.jpg" />
+									</div>
+									<div id="div_background_8" class="div_low_background">
+										<img src="./images/van_gogh_in_the_room.jpg" />
+									</div>
 									<div id="div_background_9" class="div_low_background">
-										<img src="./images/alone_on_beach.jpg" />
+										<img src="./images/the_last_moment.jpg" />
 									</div>
 									<div id="div_background_10" class="div_low_background">
-										<img src="./images/me_cigarette.jpg" />
+										<img src="./images/alone_on_beach.jpg" />
 									</div>
 								</div>
 								<div class="div_background" onscroll="atry(this)">
 									<div id="div_about_info_caption_0"
 										class="div_about_info_caption">
-										<p>Welcome to my website.</p>
-										<p>My name is, obviously, Muhammad Moneib, and I am a
-											software engineer by profession as well as an amateur artist,
-											writer, and traveller -- or that's what I'd rather believe.</p>
+										<p>Welcome to Muhammad Moneib's website.</p>
+										<p>Born in the Orwellian year of 1984, Moneib has developed early on a facination with technology and arts. Coming into age amid the birth of the Internet, the digital transformation of nearly everything, and the addition of an extra depth in animation, being an active part of this revolution was his dream.</p>
 									</div>
 									<div class="div_sliding_background_content">
 										<span class="span_lowered_content_side"></span> <span
@@ -432,13 +101,7 @@
 									</div>
 									<div id="div_about_info_caption_1"
 										class="div_about_info_caption">
-										<p>I was born in Cairo, Egypt back in 1984, which happens
-											to be the title of my favorite book so far. There's so much
-											to learn about the current world from Orwell's novel,
-											especially if you are a defensive pessimist like myself. The
-											idea of defensive pessimism is to expect the worst while you
-											hope for the best, which will protect you from disappointment
-											and unwelcomed surprises, hence the defensive part.</p>
+										<p>Nonetheless, growing in Cairo, Egypt, not far away from the Great Pyramids of Giza, his love of the modern technology was challenged by an equal love of antiquity and its vintage viewpoint. The glory of ancient Egypt, and specially in comparison to the lackluster and decay of modern Egypt, left the greatest mark on his soul, one that follows him wherever he goes as an allegory to the situation of the whole modern world in general. </p>
 									</div>
 									<div class="div_sliding_background_content">
 										<span class="span_lowered_content_side"></span> <span
@@ -448,11 +111,7 @@
 									</div>
 									<div id="div_about_info_caption_2"
 										class="div_about_info_caption">
-										<p>This I have learned during my thirty-something years on
-											this planet the hard way, through trial and error, which is
-											the same mechanism I have employed to get the hang of all my
-											self-taught leisure skills, including photgraphy, writing,
-											and drawing, among others.</p>
+										<p>Hence now, older and wiser, he knows very well that technology is more of a symptom of a disease than an answer to the plight of humanity. That the constant desire for growth is an intrinsic human condition, one that literally kills us in many ways, as we indvidually grow to old age, and as we are growing now to unsustainability as a species.</p>
 									</div>
 									<div class="div_sliding_background_content">
 										<span class="span_lowered_content_side"></span> <span
@@ -462,13 +121,7 @@
 									</div>
 									<div id="div_about_info_caption_3"
 										class="div_about_info_caption">
-										<p>I started experimenting with photography back in 2002
-											when I first owned a mobile phone with an embedded camera.
-											The idea of virtual storage and how cheap and accessible it
-											made photography fascinated me, and despite the humble
-											quality of the images at that time, they were more than
-											enough for me as a creative outlet to explore my artistic
-											side..</p>
+										<p>Yet, as pragmatic as he desires to be, Moneib knows that the only way out is in. That is, for humanity to quit being addicted to growth, it can use the tools that growth provide through harnessing the power of the collective to reach a common myth, one that would help humanity reach a consensus.</p>
 									</div>
 									<div class="div_sliding_background_content">
 										<span class="span_lowered_content_side"></span> <span
@@ -478,12 +131,7 @@
 									</div>
 									<div id="div_about_info_caption_4"
 										class="div_about_info_caption">
-										<p>Then, in 2007, I began ptactising drawing on regular
-											basis, which turned out to be my true passion. First, it was
-											the challenge to get the likeness of people on paper that
-											drew me to this hobby, but soon enough I found purer
-											enjoyment in expressing myself and docoumenting my dreams
-											visually.</p>
+										<p>It is within the yin and yang of the collective and the indiviual, Moneib is convinced, where the solution lies. Hence, he tries to maintain the balance of duties to his society and himself: for the former through being and informed citizen, for the latter through forgetting such information.</p>
 									</div>
 									<div class="div_sliding_background_content">
 										<span class="span_lowered_content_side"></span> <span
@@ -493,11 +141,7 @@
 									</div>
 									<div id="div_about_info_caption_5"
 										class="div_about_info_caption">
-										<p>Through constant practising, I was able to improve my
-											drawing skills significantly, not only with the quality of
-											the lines, but with also the fluidity of the ideas. For me,
-											practice doesn't make perfect, but it, most certainly, makes
-											better.</p>
+										<p>His ideology is simple: contradictions are complementary and, so, the raison d'etre lies in the belief that one is nothing.</p>
 									</div>
 									<div class="div_sliding_background_content">
 										<span class="span_lowered_content_side"></span> <span
@@ -507,14 +151,7 @@
 									</div>
 									<div id="div_about_info_caption_6"
 										class="div_about_info_caption">
-										<p>In the world of arts, I have found something much
-											better than immitating reality; I have found it a very
-											effective outlet for my most nagging thoughts and a soother
-											of the most notorious of my inner demons, demands which even
-											writing, with all its therapeutical effects, couldn't
-											satisfy. Yet through writing I am able to document and
-											communicate the details of my abstract ideas for my own
-											consumption before anyone else's.</p>
+										<p>Thus, Moneib has built a rigorous mechanism of approaching the world through employing the good old Trial and Error way of development. It wouldn't be surprising then if I tell you that he enjoys the process more than the conclusions and the journey more than the destination. For that purpose, the inefficiencies of this mechanism become its strongest point, just like a Rube Goldberg machine.</p>
 									</div>
 									<div class="div_sliding_background_content">
 										<span class="span_lowered_content_side"></span> <span
@@ -524,12 +161,7 @@
 									</div>
 									<div id="div_about_info_caption_7"
 										class="div_about_info_caption">
-										<p>My relationship with computers started in 1994, just
-											one year before I have written my first computer program.
-											Five years later, I was selling software over the internet
-											for Palm devices under the name of an imaginary company, so
-											it was natural for me to pursue my higher studies in computer
-											and software engineering.</p>
+										<p>For him, freedom lies in the uncertainty and creativity lies in horizontal exploration rather than vertical specialization. Combined together, both beliefs lead Moneib to new frontiers within the vast terrain of his soul.</p>
 									</div>
 									<div class="div_sliding_background_content">
 										<span class="span_lowered_content_side"></span> <span
@@ -539,15 +171,7 @@
 									</div>
 									<div id="div_about_info_caption_8"
 										class="div_about_info_caption">
-										<p>Nevertheless, I perceive technoligy, per se, as a
-											dillemma each day: something which is supposed to make lives
-											simpler is clearly not. We are trading, rather idiotically,
-											the wealth of nature with the false promises of the virtual
-											worlds, with greed as its precursor. Yet it doesn't have to
-											be that way. This flase dichtomy can be put to rest as humans
-											drift away from competition towards cooperation, maintain a
-											steady population, and discover new ways to immerse reality
-											into technology.</p>
+										<p>Hunting for the treasure within, he keeps digging here and about. Yet, being a non-believer in happy, as well as unhappy endings, Moneib knows very well that the journey will be over one day, but his hunt will continue forever in the manner of Atlas.</p>
 									</div>
 									<div class="div_sliding_background_content">
 										<span class="span_lowered_content_side"></span> <span
@@ -557,48 +181,7 @@
 									</div>
 									<div id="div_about_info_caption_9"
 										class="div_about_info_caption">
-										<p>No matter where one lives, we are facing the same
-											challenges, albeit in different incarnations. My solo travels
-											around the world have taught me that despite our differences,
-											we are all the same, that we should get together to tackle
-											our common dangers, and that we should be conservationists
-											rather than conservatives in a way that can adjourn the much
-											needed liberal mindset with the ornaments of the common good.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-										
+										<p>Until then, he settles for being through imagination. He engineers a digital abstraction of the analog, he draws a moment that has never been, he writes what can't be told, and he photographs because time travelling isn't possible.
 									</div>
 									<div class="div_sliding_background_content">
 										<span class="span_lowered_content_side"></span> <span
@@ -608,17 +191,7 @@
 									</div>
 									<div id="div_about_info_caption_10"
 										class="div_about_info_caption">
-										<p>Hence, the challenges for unification and cooperation
-											are immense, whether at the global or personal levels. It is
-											my desire to bring this reality into technology and into art
-											as much as I can. Be it through drawing, photography,
-											writing, coding...etc., what is important is to work in a
-											certain direction with whatever tools one has got. One of
-											these tools is this website, which I am building for myself
-											in the first place to enhance my front-end development skills
-											in addition to collecting and showcasing my different works
-											in a single place. I hope it would be beneficial to some
-											others as well.</p>
+										<p>In Moneib's fantasy, fantasy is reality. It's, perhaps, the fourth Orwellian slogan that wasn't included in 1984. Did I mention that Moneib was born in 1984?</p>
 									</div>
 									<div id="div_about_info_caption_11"
 										class="div_about_info_caption">
@@ -672,30 +245,9 @@
 			</div>
 			<div class="div_section_body">
 				<div class="div_section_menu">
-
-					<!-- Depending on image's height for scaling, as it is the 
-						predominent side on desktops. This might need to be revisited 
-						for mobiles running on the default porterait mode. -->
-					<span class="span_img_character"><img alt="What to choose?"
-						src="images/mm_cartoon_pondering.svg" height="50%"></span>
-					<!-- Changing only the width of the images maintains their 
-								aspect ratio while allowing scalability, since the size
-								is now tied to that of its parent (i.e. 50% of the
-								width of the span.-->
-					<span class="span_lefttop"> <img
-						id="img_lefttop_bubble_drawing" class="img_bubble"
-						src="images/bubble_lefttop_drawing.svg" height="50%" alt="Drawing"
-						onclick="getSectionSubmenu('div_artwork_section_drawing')" />
-					</span><span class="span_righttop"><img
-						id="img_righttop_bubble_photography" class="img_bubble"
-						src="images/bubble_righttop_photography.svg" height="50%"
-						alt="Photography" /></span><span class="span_leftbottom"><img
-						id="img_leftbottom_bubble_cartoonscomics" class="img_bubble"
-						src="images/bubble_leftbottom_cartoonscomics.svg" height="50%"
-						alt="Cartoons & Comics" /></span><span class="span_rightbottom"><img
-						id="img_rightbottom_bubble_other" class="img_bubble"
-						src="images/bubble_rightbottom_other.svg" height="50%" alt="Other" /></span>
-
+					<div class="div_anchor">
+						<object id="artworks_menu_drawing" type="image/svg+xml" data="images/artworks_menu_drawing.svg"></object>
+					</div>
 				</div>
 				<div id="div_artwork_section_drawing" class="div_section_submenu"
 					hidden="hidden">
@@ -818,7 +370,7 @@
 				</div>
 				<div class="div_section_content">
 					<!-- Span to avoid conflict with cascaded styling of div. -->
-					<span class="div_button_back" onclick="getSectionMenu()"> <span>&lt;</span>
+					<span class="div_button_back" onclick="getSectionSubMenu()"> <span>&lt;</span>
 					</span>
 					<div class="div_content_container">
 						<div class="div_content_artwork">
@@ -858,24 +410,15 @@
 								Site Updates</div>
 							<div class="div_main_branch_anchor">
 								<div class="div_main_content">
-								efwergwgopkwgw<br>
-								gwgw<br>
-								gwegw<br>
-								gwg<br>
-								ew<br>
-								gwgwerhw3rhw<br>
-								werhhe<br>
-								erhe<br>
-								h<br>
-								erh<br>
-								erherhehe<br>
-								ehgjeoir<br>
-								rgegeopjrgj<br>h<br>
-								erh<br>
-								erherhehe<br>
-								ehgjeoir<br>
-								rgegeopjrgj<br>
-								weg				<br>				</div>
+									<ul>
+											<li>April 2020
+												<ul>
+													<li>Updated Main section.</li>
+													<li>Fixed navigation back from Artworks view.</li>
+												</ul>
+											</li>
+									</ul>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -885,6 +428,6 @@
 	</div>
 </body>
 <footer>
-	<span>COPYRIGHT 2017, MUHAMMAD MONEIB.</span>
+	<span>COPYRIGHT 2020, MUHAMMAD MONEIB.</span>
 </footer>
 </html>

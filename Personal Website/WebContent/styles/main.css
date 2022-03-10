@@ -720,7 +720,9 @@ iframe {
 }
 
 .div_low_background>img{
-	height:100%;
+	object-fit: cover; /* Maintains aspect ratio. */
+	width: 100%;
+	height: 100%;	
 }
 
 #div_background_1{
@@ -864,6 +866,11 @@ to allow for responsive design.*/
 	display: flex;
 	flex-wrap: wrap;
 	padding-top: 3%;
+}
+
+.img_menu{
+	width: 100%
+	height: 100%
 }
 
 #div_siteupdate_header{
