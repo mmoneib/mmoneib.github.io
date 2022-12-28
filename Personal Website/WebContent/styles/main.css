@@ -662,6 +662,7 @@ iframe {
 .div_anchor {
 	box-sizing: border-box; /*To exclude padding and margins from calc.*/
 	position: relative;
+        justify-content: center;
 	width: 100%;
 	height: 96%;
 	padding-left: 5%;
